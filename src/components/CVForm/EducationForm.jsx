@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 // Uses props passed down from the CVForm component
 export default function EducationForm({ education, onEducationChange }) {
   // Loop through each object in the array
@@ -37,3 +39,18 @@ export default function EducationForm({ education, onEducationChange }) {
     </>
   );
 }
+
+EducationForm.propTypes = {
+  education: PropTypes.arrayOf(
+    PropTypes.shape({
+      universityName: PropTypes.string,
+      city: PropTypes.string,
+      country: PropTypes.string,
+      degree: PropTypes.string,
+      startDate: PropTypes.string,
+      endDate: PropTypes.string,
+      id: PropTypes.string,
+    })
+  ).isRequired,
+  onEducationChange: PropTypes.func.isRequired,
+};
