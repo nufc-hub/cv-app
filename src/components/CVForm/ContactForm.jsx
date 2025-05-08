@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 // Uses props passed down from the CVForm component
 export default function ContactForm({ contact, onContactChange }) {
   // Loop through the object
@@ -29,3 +31,15 @@ export default function ContactForm({ contact, onContactChange }) {
     </>
   );
 }
+
+ContactForm.propTypes = {
+  contact: PropTypes.shape({
+    name: PropTypes.string,
+    email: PropTypes.string,
+    phone: PropTypes.string,
+    city: PropTypes.string,
+    country: PropTypes.string,
+    link: PropTypes.string,
+  }).isRequired,
+  onContactChange: PropTypes.func.isRequired,
+};
