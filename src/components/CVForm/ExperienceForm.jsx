@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 // Uses props passed down from the CVForm component
 export default function ExperienceForm({ experience, onExperienceChange }) {
   // Loop through each object in the array
@@ -36,3 +38,17 @@ export default function ExperienceForm({ experience, onExperienceChange }) {
     </>
   );
 }
+
+ExperienceForm.propTypes = {
+  experience: PropTypes.arrayOf(
+    PropTypes.shape({
+      jobTitle: PropTypes.string,
+      company: PropTypes.string,
+      startDate: PropTypes.string,
+      endDate: PropTypes.string,
+      description: PropTypes.string,
+      id: PropTypes.string,
+    })
+  ).isRequired,
+  onExperienceChange: PropTypes.func.isRequired,
+};
