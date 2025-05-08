@@ -1,0 +1,31 @@
+// Uses props passed down from the CVForm component
+export default function ContactForm({ contact, onContactChange }) {
+  // Loop through the object
+  const fields = Object.keys(contact).map((key) => {
+    // Dont render the object id
+    if (key === 'id') return null;
+
+    // Render contact form
+    return (
+      // Set key for each contact field.
+      <div key={key}>
+        <label htmlFor={key}>
+          {key}
+          <input
+            type="text"
+            value={contact[key]}
+            onChange={(e) => onContactChange(key, e.target.value)} // Updates state
+          />
+        </label>
+      </div>
+    );
+  });
+
+  // Render contact
+  return (
+    <>
+      <h2>Contact Details</h2>
+      {fields}
+    </>
+  );
+}
