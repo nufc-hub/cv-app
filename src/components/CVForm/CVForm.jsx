@@ -10,17 +10,21 @@ export default function CVForm({
   onContactChange,
   onEducationChange,
   onExperienceChange,
+  onAddEducation,
+  onAddExperience,
 }) {
   return (
     <form>
       <ContactForm contact={contact} onContactChange={onContactChange} />
       <EducationForm
-        education={education}
-        onEducationChange={onEducationChange}
+        education={education} // Education array
+        onEducationChange={onEducationChange} // Input element functionality
+        onAddEducation={onAddEducation} // For button click
       />
       <ExperienceForm
-        experience={experience}
-        onExperienceChange={onExperienceChange}
+        experience={experience} // Experience array
+        onExperienceChange={onExperienceChange} // Input element functionality
+        onAddExperience={onAddExperience} // For button click
       />
     </form>
   );
@@ -57,4 +61,6 @@ CVForm.propTypes = {
   onContactChange: PropTypes.func.isRequired,
   onEducationChange: PropTypes.func.isRequired,
   onExperienceChange: PropTypes.func.isRequired,
+  onAddEducation: PropTypes.func.isRequired,
+  onAddExperience: PropTypes.func.isRequired,
 };
