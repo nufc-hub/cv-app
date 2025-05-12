@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 // Uses props passed down from the CVPreview component
 export default function ContactDetails({ contact }) {
   // Loop through the object
@@ -20,3 +22,15 @@ export default function ContactDetails({ contact }) {
   // Render contact details
   return <>{contactCV}</>;
 }
+
+ContactDetails.propTypes = {
+  contact: PropTypes.shape({
+    name: PropTypes.string,
+    email: PropTypes.string,
+    phone: PropTypes.string,
+    city: PropTypes.string,
+    country: PropTypes.string,
+    link: PropTypes.string,
+    id: PropTypes.string,
+  }).isRequired,
+};

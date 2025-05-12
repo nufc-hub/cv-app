@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 // Uses props passed down from the CVPreview component
 export default function EducationExperience({ education }) {
   // Loop through each object in the array
@@ -29,3 +31,17 @@ export default function EducationExperience({ education }) {
     </>
   );
 }
+
+EducationExperience.propTypes = {
+  education: PropTypes.arrayOf(
+    PropTypes.shape({
+      universityName: PropTypes.string,
+      city: PropTypes.string,
+      country: PropTypes.string,
+      degree: PropTypes.string,
+      startDate: PropTypes.string,
+      endDate: PropTypes.string,
+      id: PropTypes.string,
+    })
+  ).isRequired,
+};
