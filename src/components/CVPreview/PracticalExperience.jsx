@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 // Uses props passed down from the CVPreview component
 export default function PracticalExperience({ experience }) {
   // Loop through each object in the array
@@ -29,3 +31,16 @@ export default function PracticalExperience({ experience }) {
     </>
   );
 }
+
+PracticalExperience.propTypes = {
+  experience: PropTypes.arrayOf(
+    PropTypes.shape({
+      jobTitle: PropTypes.string,
+      company: PropTypes.string,
+      startDate: PropTypes.string,
+      endDate: PropTypes.string,
+      description: PropTypes.string,
+      id: PropTypes.string,
+    })
+  ).isRequired,
+};
