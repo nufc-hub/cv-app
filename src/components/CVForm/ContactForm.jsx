@@ -27,8 +27,10 @@ export default function ContactForm({ contact, onContactChange }) {
   // Render contact
   return (
     <>
-      <h2>Contact Details</h2>
-      {fields}
+      <fieldset>
+        <legend>Contact Details</legend>
+        {fields}
+      </fieldset>
     </>
   );
 }

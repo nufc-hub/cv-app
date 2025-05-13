@@ -37,9 +37,11 @@ export default function ExperienceForm({
   // Render experience inputs
   return (
     <>
-      <h2>Experience</h2>
-      {form}
-      <button onClick={onAddExperience}>Add Experience</button>
+      <fieldset>
+        <legend>Work Experience</legend>
+        {form}
+        <button onClick={onAddExperience}>Add Experience</button>
+      </fieldset>
     </>
   );
 }

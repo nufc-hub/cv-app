@@ -38,9 +38,11 @@ export default function EducationForm({
   // Render education inputs
   return (
     <>
-      <h2>Education</h2>
-      {form}
-      <button onClick={onAddEducation}>Add Education</button>
+      <fieldset>
+        <legend>Education</legend>
+        {form}
+        <button onClick={onAddEducation}>Add Education</button>
+      </fieldset>
     </>
   );
 }
