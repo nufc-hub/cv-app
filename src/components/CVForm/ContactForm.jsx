@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import './ContactForm.css';
 
 // Uses props passed down from the CVForm component
 export default function ContactForm({ contact, onContactChange }) {

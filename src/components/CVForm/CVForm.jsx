@@ -1,6 +1,7 @@
 import ContactForm from './ContactForm.jsx';
 import EducationForm from './EducationForm.jsx';
 import ExperienceForm from './ExperienceForm.jsx';
+import './CVForm.css';
 import PropTypes from 'prop-types';
 
 export default function CVForm({
@@ -14,19 +15,32 @@ export default function CVForm({
   onAddExperience,
 }) {
   return (
-    <form>
-      <ContactForm contact={contact} onContactChange={onContactChange} />
-      <EducationForm
-        education={education} // Education array
-        onEducationChange={onEducationChange} // Input element functionality
-        onAddEducation={onAddEducation} // For button click
-      />
-      <ExperienceForm
-        experience={experience} // Experience array
-        onExperienceChange={onExperienceChange} // Input element functionality
-        onAddExperience={onAddExperience} // For button click
-      />
-    </form>
+    <>
+      <form>
+        {/* Button panel */}
+        <section>
+          <button>Personal Info</button>
+          <button>Profile</button>
+          <button>Work Experience</button>
+          <button>Education</button>
+          <button>Projects</button>
+          <button>Skills</button>
+        </section>
+
+        {/* Contact info */}
+        <ContactForm contact={contact} onContactChange={onContactChange} />
+        <EducationForm
+          education={education} // Education array
+          onEducationChange={onEducationChange} // Input element functionality
+          onAddEducation={onAddEducation} // For button click
+        />
+        <ExperienceForm
+          experience={experience} // Experience array
+          onExperienceChange={onExperienceChange} // Input element functionality
+          onAddExperience={onAddExperience} // For button click
+        />
+      </form>
+    </>
   );
 }
 

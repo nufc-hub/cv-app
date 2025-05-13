@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import './EducationForm.css';
 
 // Uses props passed down from the CVForm component
 export default function EducationForm({
