@@ -19,12 +19,12 @@ export default function CVForm({
       <form>
         {/* Button panel */}
         <nav aria-label="Form section navigation">
-          <button>Personal Info</button>
-          <button>Profile</button>
-          <button>Work Experience</button>
-          <button>Education</button>
-          <button>Projects</button>
-          <button>Skills</button>
+          <button type="button">Personal Info</button>
+          <button type="button">Profile</button>
+          <button type="button">Work Experience</button>
+          <button type="button">Education</button>
+          <button type="button">Projects</button>
+          <button type="button">Skills</button>
         </nav>
 
         {/* Contact info */}
