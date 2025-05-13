@@ -40,7 +40,9 @@ export default function ExperienceForm({
       <fieldset>
         <legend>Work Experience</legend>
         {form}
-        <button onClick={onAddExperience}>Add Experience</button>
+        <button type="button" onClick={onAddExperience}>
+          Add Experience
+        </button>
       </fieldset>
     </>
   );

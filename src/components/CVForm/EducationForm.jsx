@@ -41,7 +41,9 @@ export default function EducationForm({
       <fieldset>
         <legend>Education</legend>
         {form}
-        <button onClick={onAddEducation}>Add Education</button>
+        <button type="button" onClick={onAddEducation}>
+          Add Education
+        </button>
       </fieldset>
     </>
   );
