@@ -12,14 +12,13 @@ export default function ContactForm({ contact, onContactChange }) {
     return (
       // Set key for each contact field.
       <div key={key}>
-        <label htmlFor={key}>
-          {key}
-          <input
-            type="text"
-            value={contact[key]}
-            onChange={(e) => onContactChange(key, e.target.value)} // Updates state
-          />
-        </label>
+        <label htmlFor={key}>{key}</label>
+        {key}
+        <input
+          type="text"
+          value={contact[key]}
+          onChange={(e) => onContactChange(key, e.target.value)} // Updates state
+        />
       </div>
     );
   });
