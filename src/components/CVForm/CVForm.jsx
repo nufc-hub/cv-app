@@ -18,14 +18,14 @@ export default function CVForm({
     <>
       <form>
         {/* Button panel */}
-        <section>
+        <nav aria-label="Form section navigation">
           <button>Personal Info</button>
           <button>Profile</button>
           <button>Work Experience</button>
           <button>Education</button>
           <button>Projects</button>
           <button>Skills</button>
-        </section>
+        </nav>
 
         {/* Contact info */}
         <ContactForm contact={contact} onContactChange={onContactChange} />
