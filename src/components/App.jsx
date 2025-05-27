@@ -37,6 +37,9 @@ function App() {
     },
   ]);
 
+  // The current visible form field
+  const [activeForm, setActiveForm] = useState('contact');
+
   function handleContactChange(field, value) {
     setContact((prev) => ({ ...prev, [field]: value }));
   }
@@ -67,6 +70,7 @@ function App() {
 
   console.log(experience);
 
+  // Add education div to form
   function addEducation() {
     setEducation((prev) => [
       ...prev,
@@ -82,8 +86,8 @@ function App() {
     ]);
   }
 
+  // Add work experience div to form
   function addExperience() {
-    console.log('Default prevented');
     setExperience((prev) => [
       ...prev,
       {
@@ -97,17 +101,24 @@ function App() {
     ]);
   }
 
+  // Changes which section of the form is visible.
+  function renderFormSection(formSection) {
+    setActiveForm(formSection);
+  }
+
   return (
     <div className="app-container">
       <CVForm
         contact={contact}
         education={education}
         experience={experience}
+        activeForm={activeForm}
         onContactChange={handleContactChange}
         onEducationChange={handleEducationChange}
         onExperienceChange={handleExperienceChange}
         onAddEducation={addEducation}
         onAddExperience={addExperience}
+        onRenderFormSection={renderFormSection}
       />
       <CVPreview
         contact={contact}
