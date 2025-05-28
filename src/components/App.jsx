@@ -61,7 +61,15 @@ function App() {
     },
   ]);
 
-  // The current visible form field
+  // Skills learned
+  const [skill, setSkill] = useState([
+    {
+      skillCategory: '',
+      skill: '',
+    },
+  ]);
+
+  // The current visible form field (contact set as default)
   const [activeForm, setActiveForm] = useState('contact');
 
   function handleContactChange(field, value) {
