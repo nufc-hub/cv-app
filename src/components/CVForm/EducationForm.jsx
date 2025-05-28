@@ -4,6 +4,7 @@ import './EducationForm.css';
 // Uses props passed down from the CVForm component
 export default function EducationForm({
   education,
+  labels,
   onEducationChange,
   onAddEducation,
 }) {
@@ -22,7 +23,7 @@ export default function EducationForm({
         return (
           // Set key for each education field.
           <div key={`${entry.id}-${key}`}>
-            <label htmlFor={key}>{key}</label>
+            <label htmlFor={key}>{labels[key] || key}</label>
             <input
               id={key}
               type="text"
@@ -62,6 +63,7 @@ EducationForm.propTypes = {
       id: PropTypes.string,
     })
   ).isRequired,
+  labels: PropTypes.objectOf(PropTypes.string).isRequired,
   onEducationChange: PropTypes.func.isRequired,
   onAddEducation: PropTypes.func.isRequired,
 };

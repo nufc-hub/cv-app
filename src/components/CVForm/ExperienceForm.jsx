@@ -4,6 +4,7 @@ import './EducationForm.css';
 // Uses props passed down from the CVForm component
 export default function ExperienceForm({
   experience,
+  labels,
   onExperienceChange,
   onAddExperience,
 }) {
@@ -22,7 +23,7 @@ export default function ExperienceForm({
         return (
           // Set key for each experience field.
           <div key={`${entry.id}-${key}`}>
-            <label htmlFor={key}>{key}</label>
+            <label htmlFor={key}>{labels[key] || key}</label>
             <input
               id={key}
               type="text"
@@ -60,6 +61,7 @@ ExperienceForm.propTypes = {
       id: PropTypes.string,
     })
   ).isRequired,
+  labels: PropTypes.objectOf(PropTypes.string).isRequired,
   onExperienceChange: PropTypes.func.isRequired,
   onAddExperience: PropTypes.func.isRequired,
 };

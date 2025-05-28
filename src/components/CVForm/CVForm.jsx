@@ -8,6 +8,9 @@ export default function CVForm({
   contact,
   education,
   experience,
+  contactLabel,
+  educationLabel,
+  experienceLabel,
   activeForm,
   onContactChange,
   onEducationChange,
@@ -43,13 +46,18 @@ export default function CVForm({
 
         {/* Contact info */}
         {activeForm === 'contact' && (
-          <ContactForm contact={contact} onContactChange={onContactChange} />
+          <ContactForm
+            contact={contact}
+            labels={contactLabel} //Form labels
+            onContactChange={onContactChange}
+          />
         )}
 
         {/* Education info */}
         {activeForm === 'education' && (
           <EducationForm
             education={education} // Education array
+            labels={educationLabel} //Form labels
             onEducationChange={onEducationChange} // Input element functionality
             onAddEducation={onAddEducation} // For button click
           />
@@ -59,6 +67,7 @@ export default function CVForm({
         {activeForm === 'experience' && (
           <ExperienceForm
             experience={experience} // Experience array
+            labels={experienceLabel} //Form labels
             onExperienceChange={onExperienceChange} // Input element functionality
             onAddExperience={onAddExperience} // For button click
           />
@@ -97,6 +106,9 @@ CVForm.propTypes = {
       description: PropTypes.string,
     })
   ).isRequired,
+  contactLabel: PropTypes.objectOf(PropTypes.string).isRequired,
+  educationLabel: PropTypes.objectOf(PropTypes.string).isRequired,
+  experienceLabel: PropTypes.objectOf(PropTypes.string).isRequired,
   activeForm: PropTypes.oneOf(['contact', 'education', 'experience'])
     .isRequired,
   onContactChange: PropTypes.func.isRequired,

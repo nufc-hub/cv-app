@@ -1,7 +1,12 @@
 import { useState } from 'react';
-import './App.css';
 import CVForm from '../components/CVForm/CVForm.jsx';
 import CVPreview from '../components/CVPreview/CVPreview.jsx';
+import {
+  contactLabel,
+  educationLabel,
+  experienceLabel,
+} from '../constants/labels.js';
+import './App.css';
 
 function App() {
   const [contact, setContact] = useState({
@@ -114,6 +119,9 @@ function App() {
         education={education}
         experience={experience}
         activeForm={activeForm}
+        contactLabel={contactLabel}
+        educationLabel={educationLabel}
+        experienceLabel={experienceLabel}
         onContactChange={handleContactChange}
         onEducationChange={handleEducationChange}
         onExperienceChange={handleExperienceChange}
@@ -131,16 +139,3 @@ function App() {
 }
 
 export default App;
-
-// Add 'Add education/experience' button to form
-// When clicked it adds a new object into the education state array
-// It adds another educationForm component to the CVForm
-// It adds another educationExperience component to CVPreview
-
-// Then make a delete button, which reverses this process
-
-// Make button function here.
-// Pass it as props via App and CVFrom into the EducationForm component
-// Create /render button in the EducationFrom component
-// Pass function to the button in EducationForm component
-// In the same way that handleEducationChange is passed as a prop to the EducationForm component

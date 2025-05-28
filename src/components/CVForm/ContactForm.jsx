@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import './ContactForm.css';
 
 // Uses props passed down from the CVForm component
-export default function ContactForm({ contact, onContactChange }) {
+export default function ContactForm({ contact, labels, onContactChange }) {
   // Loop through the object
   const fields = Object.keys(contact).map((key) => {
     // Dont render the object id
@@ -12,7 +12,7 @@ export default function ContactForm({ contact, onContactChange }) {
     return (
       // Set key for each contact field.
       <div key={key}>
-        <label htmlFor={key}>{key}</label>
+        <label htmlFor={key}>{labels[key] || key}</label>
         <input
           id={key}
           type="text"
@@ -44,5 +44,6 @@ ContactForm.propTypes = {
     gitHub: '',
     linkedIn: '',
   }).isRequired,
+  labels: PropTypes.objectOf(PropTypes.string).isRequired,
   onContactChange: PropTypes.func.isRequired,
 };
