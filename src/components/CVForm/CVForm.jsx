@@ -75,7 +75,8 @@ CVForm.propTypes = {
     phone: PropTypes.string,
     city: PropTypes.string,
     country: PropTypes.string,
-    link: PropTypes.string,
+    gitHub: '',
+    linkedIn: '',
   }).isRequired,
   education: PropTypes.arrayOf(
     PropTypes.shape({

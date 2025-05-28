@@ -10,7 +10,8 @@ function App() {
     phone: '',
     city: '',
     country: '',
-    link: '',
+    gitHub: '',
+    linkedIn: '',
     id: crypto.randomUUID(),
   });
 

@@ -13,7 +13,6 @@ export default function ContactForm({ contact, onContactChange }) {
       // Set key for each contact field.
       <div key={key}>
         <label htmlFor={key}>{key}</label>
-        {key}
         <input
           type="text"
           value={contact[key]}
@@ -41,7 +40,8 @@ ContactForm.propTypes = {
     phone: PropTypes.string,
     city: PropTypes.string,
     country: PropTypes.string,
-    link: PropTypes.string,
+    gitHub: '',
+    linkedIn: '',
   }).isRequired,
   onContactChange: PropTypes.func.isRequired,
 };
