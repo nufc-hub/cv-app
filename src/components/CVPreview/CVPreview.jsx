@@ -3,12 +3,19 @@ import EducationExperience from './EducationExperience.jsx';
 import PracticalExperience from './PracticalExperience.jsx';
 import PropTypes from 'prop-types';
 
-export default function CVPreview({ contact, education, experience }) {
+export default function CVPreview({
+  contact,
+  education,
+  experience,
+  contactLabel,
+  educationLabel,
+  experienceLabel,
+}) {
   return (
     <form>
-      <ContactDetails contact={contact} />
-      <EducationExperience education={education} />
-      <PracticalExperience experience={experience} />
+      <ContactDetails contact={contact} labels={contactLabel} />
+      <EducationExperience education={education} labels={educationLabel} />
+      <PracticalExperience experience={experience} labels={experienceLabel} />
     </form>
   );
 }
@@ -41,4 +48,7 @@ CVPreview.propTypes = {
       description: PropTypes.string,
     })
   ),
+  contactLabel: PropTypes.objectOf(PropTypes.string).isRequired,
+  educationLabel: PropTypes.objectOf(PropTypes.string).isRequired,
+  experienceLabel: PropTypes.objectOf(PropTypes.string).isRequired,
 };

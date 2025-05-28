@@ -119,9 +119,9 @@ function App() {
         education={education}
         experience={experience}
         activeForm={activeForm}
-        contactLabel={contactLabel}
-        educationLabel={educationLabel}
-        experienceLabel={experienceLabel}
+        contactLabel={contactLabel} // Form labels
+        educationLabel={educationLabel} // Form labels
+        experienceLabel={experienceLabel} // Form labels
         onContactChange={handleContactChange}
         onEducationChange={handleEducationChange}
         onExperienceChange={handleExperienceChange}
@@ -133,6 +133,9 @@ function App() {
         contact={contact}
         education={education}
         experience={experience}
+        contactLabel={contactLabel} // Field labels
+        educationLabel={educationLabel} // Field labels
+        experienceLabel={experienceLabel} // Field labels
       />
     </div>
   );

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 // Uses props passed down from the CVPreview component
-export default function PracticalExperience({ experience }) {
+export default function PracticalExperience({ experience, labels }) {
   // Loop through each object in the array
   const ExperienceCV = experience.map((entry) => (
     // Set key for the experience section.
@@ -15,7 +15,7 @@ export default function PracticalExperience({ experience }) {
         return (
           // Set key for each experience field.
           <div key={`${entry.id}-${key}`}>
-            <h3>{key}</h3>
+            <h3>{labels[key]}</h3>
             <p>{entry[key]}</p>
           </div>
         );
@@ -43,4 +43,5 @@ PracticalExperience.propTypes = {
       id: PropTypes.string,
     })
   ).isRequired,
+  labels: PropTypes.objectOf(PropTypes.string).isRequired,
 };
