@@ -9,6 +9,7 @@ import {
 import './App.css';
 
 function App() {
+  // Contact details
   const [contact, setContact] = useState({
     name: '',
     email: '',
@@ -20,6 +21,12 @@ function App() {
     id: crypto.randomUUID(),
   });
 
+  // Profile summary
+  const [profile, setProfile] = useState({
+    summary: '',
+  });
+
+  // Education details
   const [education, setEducation] = useState([
     {
       universityName: '',
@@ -32,6 +39,7 @@ function App() {
     },
   ]);
 
+  // Work experience
   const [experience, setExperience] = useState([
     {
       jobTitle: '',
