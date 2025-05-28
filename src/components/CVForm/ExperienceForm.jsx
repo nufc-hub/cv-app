@@ -24,6 +24,7 @@ export default function ExperienceForm({
           <div key={`${entry.id}-${key}`}>
             <label htmlFor={key}>{key}</label>
             <input
+              id={key}
               type="text"
               name={key}
               onChange={(e) => onExperienceChange(index, key, e.target.value)} // Add the props for the function. Updates the object each time a letter is added or removed

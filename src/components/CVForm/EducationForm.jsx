@@ -24,6 +24,7 @@ export default function EducationForm({
           <div key={`${entry.id}-${key}`}>
             <label htmlFor={key}>{key}</label>
             <input
+              id={key}
               type="text"
               name={key}
               // value={education[index][key]}

@@ -14,6 +14,7 @@ export default function ContactForm({ contact, onContactChange }) {
       <div key={key}>
         <label htmlFor={key}>{key}</label>
         <input
+          id={key}
           type="text"
           value={contact[key]}
           onChange={(e) => onContactChange(key, e.target.value)} // Updates state
