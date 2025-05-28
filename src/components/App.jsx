@@ -51,6 +51,16 @@ function App() {
     },
   ]);
 
+  // Projects completed
+  const [project, setProject] = useState([
+    {
+      projectName: '',
+      role: '',
+      placeOrPlatform: '',
+      period: '',
+    },
+  ]);
+
   // The current visible form field
   const [activeForm, setActiveForm] = useState('contact');
 
