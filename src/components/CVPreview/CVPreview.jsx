@@ -1,6 +1,5 @@
-import ContactDetails from './ContactDetails.jsx';
-import EducationExperience from './EducationExperience.jsx';
-import PracticalExperience from './PracticalExperience.jsx';
+import ObjectPreviewSection from './ObjectPreviewSection.jsx';
+import ArrayPreviewSection from './ArrayPreviewSection.jsx';
 import PropTypes from 'prop-types';
 
 export default function CVPreview({
@@ -13,9 +12,17 @@ export default function CVPreview({
 }) {
   return (
     <form>
-      <ContactDetails contact={contact} labels={contactLabel} />
-      <EducationExperience education={education} labels={educationLabel} />
-      <PracticalExperience experience={experience} labels={experienceLabel} />
+      <ObjectPreviewSection data={contact} labels={contactLabel} />
+      <ArrayPreviewSection
+        title="Education"
+        data={education}
+        labels={educationLabel}
+      />
+      <ArrayPreviewSection
+        title="Work Experience"
+        data={experience}
+        labels={experienceLabel}
+      />
     </form>
   );
 }
