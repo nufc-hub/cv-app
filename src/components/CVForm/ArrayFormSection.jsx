@@ -14,7 +14,9 @@ export default function ArrayFormSection({
     // Set key for the experience form.
     <div key={entry.id}>
       {/* Each education form gets a new numbered header */}
-      <h3>{`Education ${index + 1}`}</h3>
+      <h3>
+        {title} {index + 1}
+      </h3>
       {/* Loop through the object */}
       {Object.keys(entry).map((key) => {
         // Dont render the object id
