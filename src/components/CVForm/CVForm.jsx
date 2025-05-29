@@ -1,5 +1,5 @@
-import ObjectFormSection from './ContactForm.jsx';
-import ArrayFormSection from './EducationForm.jsx';
+import ObjectFormSection from './ObjectFormSection.jsx';
+import ArrayFormSection from './ArrayFormSection.jsx';
 import './CVForm.css';
 import PropTypes from 'prop-types';
 
