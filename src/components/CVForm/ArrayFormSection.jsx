@@ -2,14 +2,15 @@ import PropTypes from 'prop-types';
 import './EducationForm.css';
 
 // Uses props passed down from the CVForm component
-export default function EducationForm({
-  education,
+export default function ArrayFormSection({
+  title,
+  data,
   labels,
-  onEducationChange,
-  onAddEducation,
+  onInputChange,
+  onAddField,
 }) {
   // Loop through each object in the array
-  const form = education.map((entry, index) => (
+  const form = data.map((entry, index) => (
     // Set key for the experience form.
     <div key={entry.id}>
       {/* Each education form gets a new numbered header */}
@@ -29,7 +30,7 @@ export default function EducationForm({
               type="text"
               name={key}
               // value={education[index][key]}
-              onChange={(e) => onEducationChange(index, key, e.target.value)} // Add the props for the function. Updates the object each time a letter is added or removed
+              onChange={(e) => onInputChange(index, key, e.target.value)} // Add the props for the function. Updates the object each time a letter is added or removed
             />
           </div>
         );
@@ -37,33 +38,24 @@ export default function EducationForm({
     </div>
   ));
 
-  // Render education inputs
+  // Render inputs
   return (
     <>
       <fieldset>
-        <legend>Education</legend>
+        <legend>{title}</legend>
         {form}
-        <button type="button" onClick={onAddEducation}>
-          Add Education
+        <button type="button" onClick={onAddField}>
+          Add {title}
         </button>
       </fieldset>
     </>
   );
 }
 
-EducationForm.propTypes = {
-  education: PropTypes.arrayOf(
-    PropTypes.shape({
-      universityName: PropTypes.string,
-      city: PropTypes.string,
-      country: PropTypes.string,
-      degree: PropTypes.string,
-      startDate: PropTypes.string,
-      endDate: PropTypes.string,
-      id: PropTypes.string,
-    })
-  ).isRequired,
+ArrayFormSection.propTypes = {
+  title: PropTypes.string.isRequired,
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
   labels: PropTypes.objectOf(PropTypes.string).isRequired,
-  onEducationChange: PropTypes.func.isRequired,
-  onAddEducation: PropTypes.func.isRequired,
+  onInputChange: PropTypes.func.isRequired,
+  onAddField: PropTypes.func.isRequired,
 };
