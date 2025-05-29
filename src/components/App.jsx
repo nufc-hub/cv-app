@@ -62,10 +62,10 @@ function App() {
   ]);
 
   // Skills learned
-  const [skill, setSkill] = useState([
+  const [skills, setSkills] = useState([
     {
       skillCategory: '',
-      skill: '',
+      skills: '',
     },
   ]);
 
