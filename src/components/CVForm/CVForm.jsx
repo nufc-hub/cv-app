@@ -1,6 +1,5 @@
-import ContactForm from './ContactForm.jsx';
-import EducationForm from './EducationForm.jsx';
-import ExperienceForm from './ExperienceForm.jsx';
+import ObjectFormSection from './ContactForm.jsx';
+import ArrayFormSection from './EducationForm.jsx';
 import './CVForm.css';
 import PropTypes from 'prop-types';
 
@@ -46,30 +45,33 @@ export default function CVForm({
 
         {/* Contact info */}
         {activeForm === 'contact' && (
-          <ContactForm
-            contact={contact}
+          <ObjectFormSection
+            title="Contact Information" // Section title
+            data={contact} // Contact object
             labels={contactLabel} //Form labels
-            onContactChange={onContactChange}
+            onInputChange={onContactChange}
           />
         )}
 
         {/* Education info */}
         {activeForm === 'education' && (
-          <EducationForm
-            education={education} // Education array
+          <ArrayFormSection
+            title="Education" // Section title
+            data={education} // Education array
             labels={educationLabel} //Form labels
-            onEducationChange={onEducationChange} // Input element functionality
-            onAddEducation={onAddEducation} // For button click
+            onInputChange={onEducationChange} // Input element functionality
+            onAddField={onAddEducation} // For button click
           />
         )}
 
         {/* Experience info */}
         {activeForm === 'experience' && (
-          <ExperienceForm
-            experience={experience} // Experience array
+          <ArrayFormSection
+            title="Work Experience" // Section title
+            data={experience} // Experience array
             labels={experienceLabel} //Form labels
-            onExperienceChange={onExperienceChange} // Input element functionality
-            onAddExperience={onAddExperience} // For button click
+            onInputChange={onExperienceChange} // Input element functionality
+            onAddField={onAddExperience} // For button click
           />
         )}
       </form>
