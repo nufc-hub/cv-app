@@ -1,14 +1,22 @@
 import ObjectPreviewSection from './ObjectPreviewSection.jsx';
 import ArrayPreviewSection from './ArrayPreviewSection.jsx';
+import {
+  contactLabel,
+  profileLabel,
+  educationLabel,
+  experienceLabel,
+  projectsLabel,
+  skillsLabel,
+} from '../../constants/labels.js';
 import PropTypes from 'prop-types';
 
 export default function CVPreview({
   contact,
+  profile,
   education,
   experience,
-  contactLabel,
-  educationLabel,
-  experienceLabel,
+  projects,
+  skills,
 }) {
   return (
     <form>

@@ -47,7 +47,7 @@ function App() {
   ]);
 
   // Projects completed
-  const [project, setProject] = useState([
+  const [projects, setProjects] = useState([
     {
       projectName: '',
       role: '',
@@ -66,8 +66,10 @@ function App() {
     },
   ]);
 
-  // The current visible form field (contact set as default)
+  // The current visible form field ("contact" set as default)
   const [activeForm, setActiveForm] = useState('contact');
+
+  function addObjectToStateArray() {}
 
   function addEducation() {
     setEducation((prev) => [
@@ -101,7 +103,7 @@ function App() {
 
   // Add project
   function addProject() {
-    setProject((prev) => [
+    setProjects((prev) => [
       ...prev,
       {
         projectName: '',
@@ -136,13 +138,14 @@ function App() {
         profile={profile} // Profile state
         education={education} // Education state
         experience={experience} // Work experience state
-        project={project} // Project state
-        activeForm={activeForm}
+        projects={projects} // Project state
+        skills={skills} // Skills state
+        activeForm={activeForm} // The form element currently being displayed
         onContactChange={setContact}
         onProfileChange={setProfile}
         onEducationChange={setEducation}
         onWorkExperienceChange={setExperience}
-        onProjectChange={setProject}
+        onProjectChange={setProjects}
         onSkillsChange={setSkills}
         onAddEducation={addEducation}
         onAddExperience={addExperience}

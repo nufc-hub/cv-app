@@ -34,7 +34,7 @@ export const experienceLabel = {
 };
 
 // Labels for project in form
-export const projectLabel = {
+export const projectsLabel = {
   projectName: 'Project Name',
   role: 'Role',
   placeOrPlatform: 'Place/Platform',
@@ -43,7 +43,7 @@ export const projectLabel = {
 
 // Labels for skill in form
 
-export const skillLabel = {
+export const skillsLabel = {
   skillCategory: 'Skill Category',
   skill: 'Skills',
 };

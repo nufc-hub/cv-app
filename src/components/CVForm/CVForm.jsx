@@ -9,7 +9,7 @@ import {
   profileLabel,
   educationLabel,
   experienceLabel,
-  projectLabel,
+  projectsLabel,
   skillsLabel,
 } from '../../constants/labels.js';
 import './CVForm.css';
@@ -20,7 +20,7 @@ export default function CVForm({
   profile,
   education,
   experience,
-  project,
+  projects,
   skills,
   activeForm,
   onContactChange,
@@ -81,7 +81,7 @@ export default function CVForm({
           >
             Work Experience
           </button>
-          <button type="button" onClick={() => onRenderFormSection('project')}>
+          <button type="button" onClick={() => onRenderFormSection('projects')}>
             Projects
           </button>
           <button type="button" onClick={() => onRenderFormSection('skills')}>
@@ -132,11 +132,11 @@ export default function CVForm({
         )}
 
         {/* Project info */}
-        {activeForm === 'project' && (
+        {activeForm === 'projects' && (
           <ArrayFormSection
             title={'Projects'}
-            data={project}
-            labels={projectLabel}
+            data={projects}
+            labels={projectsLabel}
             onInputChange={handleProjectInputChange}
             onAddField={onAddProject}
           />
@@ -189,7 +189,7 @@ CVForm.propTypes = {
       description: PropTypes.string,
     })
   ).isRequired,
-  project: PropTypes.arrayOf(
+  projects: PropTypes.arrayOf(
     PropTypes.shape({
       projectName: PropTypes.string,
       role: PropTypes.string,
@@ -207,7 +207,7 @@ CVForm.propTypes = {
   profileLabel: PropTypes.objectOf(PropTypes.string).isRequired,
   educationLabel: PropTypes.objectOf(PropTypes.string).isRequired,
   experienceLabel: PropTypes.objectOf(PropTypes.string).isRequired,
-  projectLabel: PropTypes.objectOf(PropTypes.string).isRequired,
+  projectsLabel: PropTypes.objectOf(PropTypes.string).isRequired,
   skillsLabel: PropTypes.objectOf(PropTypes.string).isRequired,
   activeForm: PropTypes.oneOf(['contact', 'education', 'experience'])
     .isRequired,
