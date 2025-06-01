@@ -53,6 +53,7 @@ function App() {
       role: '',
       placeOrPlatform: '',
       period: '',
+      id: crypto.randomUUID(),
     },
   ]);
 
@@ -61,13 +62,13 @@ function App() {
     {
       skillCategory: '',
       skills: '',
+      id: crypto.randomUUID(),
     },
   ]);
 
   // The current visible form field (contact set as default)
   const [activeForm, setActiveForm] = useState('contact');
 
-  // Add education div to form
   function addEducation() {
     setEducation((prev) => [
       ...prev,
@@ -83,7 +84,7 @@ function App() {
     ]);
   }
 
-  // Add work experience div to form
+  // Add work experience
   function addExperience() {
     setExperience((prev) => [
       ...prev,
@@ -98,6 +99,7 @@ function App() {
     ]);
   }
 
+  // Add project
   function addProject() {
     setProject((prev) => [
       ...prev,
@@ -106,6 +108,7 @@ function App() {
         role: '',
         placeOrPlatform: '',
         period: '',
+        id: crypto.randomUUID(),
       },
     ]);
   }
@@ -139,9 +142,6 @@ function App() {
         contact={contact}
         education={education}
         experience={experience}
-        contactLabel={contactLabel} // Field labels
-        educationLabel={educationLabel} // Field labels
-        experienceLabel={experienceLabel} // Field labels
       />
     </div>
   );
