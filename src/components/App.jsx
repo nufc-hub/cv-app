@@ -1,11 +1,6 @@
 import { useState } from 'react';
 import CVForm from '../components/CVForm/CVForm.jsx';
 import CVPreview from '../components/CVPreview/CVPreview.jsx';
-import {
-  contactLabel,
-  educationLabel,
-  experienceLabel,
-} from '../constants/labels.js';
 import './App.css';
 
 function App() {
@@ -103,6 +98,18 @@ function App() {
     ]);
   }
 
+  function addProject() {
+    setProject((prev) => [
+      ...prev,
+      {
+        projectName: '',
+        role: '',
+        placeOrPlatform: '',
+        period: '',
+      },
+    ]);
+  }
+
   // Changes which section of the form is visible.
   function renderFormSection(formSection) {
     setActiveForm(formSection);
@@ -111,14 +118,12 @@ function App() {
   return (
     <div className="app-container">
       <CVForm
-        contact={contact}
-        profile={profile}
-        education={education}
-        experience={experience}
+        contact={contact} // Contact state
+        profile={profile} // Profile state
+        education={education} // Education state
+        experience={experience} // Work experience state
+        project={project} // Project state
         activeForm={activeForm}
-        contactLabel={contactLabel} // Form labels
-        educationLabel={educationLabel} // Form labels
-        experienceLabel={experienceLabel} // Form labels
         onContactChange={setContact}
         onProfileChange={setProfile}
         onEducationChange={setEducation}
@@ -127,6 +132,7 @@ function App() {
         onSkillsChange={setSkills}
         onAddEducation={addEducation}
         onAddExperience={addExperience}
+        onAddProject={addProject}
         onRenderFormSection={renderFormSection}
       />
       <CVPreview
