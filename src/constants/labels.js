@@ -10,7 +10,7 @@ export const contactLabel = {
 };
 
 // Labels for profile in form
-export const profile = {
+export const profileLabel = {
   summary: 'Summary',
 };
 
@@ -34,7 +34,7 @@ export const experienceLabel = {
 };
 
 // Labels for project in form
-export const project = {
+export const projectLabel = {
   projectName: 'Project Name',
   role: 'Role',
   placeOrPlatform: 'Place/Platform',
@@ -43,7 +43,7 @@ export const project = {
 
 // Labels for skill in form
 
-export const skill = {
+export const skillLabel = {
   skillCategory: 'Skill Category',
   skill: 'Skills',
 };
