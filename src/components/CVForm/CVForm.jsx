@@ -32,6 +32,7 @@ export default function CVForm({
   onAddEducation,
   onAddExperience,
   onAddProject,
+  onAddSkills,
   onRenderFormSection,
 }) {
   // For rendering an object into a form section
@@ -55,6 +56,8 @@ export default function CVForm({
   );
   const handleProjectInputChange =
     createArrayObjectStateHandler(onProjectChange);
+  const handleSkillsInputChange = createArrayObjectStateHandler(onSkillsChange);
+
   return (
     <>
       <form>
@@ -81,7 +84,9 @@ export default function CVForm({
           <button type="button" onClick={() => onRenderFormSection('project')}>
             Projects
           </button>
-          <button type="button">Skills</button>
+          <button type="button" onClick={() => onRenderFormSection('skills')}>
+            Skills
+          </button>
         </nav>
 
         {/* Contact info */}
@@ -134,6 +139,17 @@ export default function CVForm({
             labels={projectLabel}
             onInputChange={handleProjectInputChange}
             onAddField={onAddProject}
+          />
+        )}
+
+        {/* Skills info */}
+        {activeForm === 'skills' && (
+          <ArrayFormSection
+            title={'Skills'}
+            data={skills}
+            labels={skillsLabel}
+            onInputChange={handleSkillsInputChange}
+            onAddField={onAddSkills}
           />
         )}
       </form>
@@ -204,5 +220,6 @@ CVForm.propTypes = {
   onAddEducation: PropTypes.func.isRequired,
   onAddExperience: PropTypes.func.isRequired,
   onAddProject: PropTypes.func.isRequired,
+  onAddSkills: PropTypes.func.isRequired,
   onRenderFormSection: PropTypes.func.isRequired,
 };
