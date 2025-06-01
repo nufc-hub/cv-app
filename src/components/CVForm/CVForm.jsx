@@ -15,26 +15,22 @@ import {
 import './CVForm.css';
 import PropTypes from 'prop-types';
 
-export default function CVForm({
-  contact,
-  profile,
-  education,
-  experience,
-  projects,
-  skills,
-  activeForm,
-  onContactChange,
-  onProfileChange,
-  onEducationChange,
-  onWorkExperienceChange,
-  onProjectChange,
-  onSkillsChange,
-  onAddEducation,
-  onAddExperience,
-  onAddProject,
-  onAddSkills,
-  onRenderFormSection,
-}) {
+export default function CVForm({ data, handlers, ui }) {
+  const { contact, profile, education, experience, projects, skills } = data;
+  const {
+    onContactChange,
+    onProfileChange,
+    onEducationChange,
+    onWorkExperienceChange,
+    onProjectChange,
+    onSkillsChange,
+    onAddEducation,
+    onAddExperience,
+    onAddProject,
+    onAddSkills,
+  } = handlers;
+  const { activeForm, onRenderFormSection } = ui;
+
   // For rendering an object into a form section
   function createObjectStateHandler(setStateFn) {
     return (field, value) => updateObjectState(setStateFn, field, value);
@@ -158,68 +154,44 @@ export default function CVForm({
 }
 
 CVForm.propTypes = {
-  contact: PropTypes.shape({
-    name: PropTypes.string,
-    email: PropTypes.string,
-    phone: PropTypes.string,
-    city: PropTypes.string,
-    country: PropTypes.string,
-    gitHub: PropTypes.string,
-    linkedIn: PropTypes.string,
+  data: PropTypes.shape({
+    contact: PropTypes.object.isRequired,
+    profile: PropTypes.object.isRequired,
+    education: PropTypes.array.isRequired,
+    experience: PropTypes.array.isRequired,
+    projects: PropTypes.array.isRequired,
+    skills: PropTypes.array.isRequired,
   }).isRequired,
-  profile: PropTypes.shape({
-    summary: PropTypes.string,
-  }).isRequired,
-  education: PropTypes.arrayOf(
-    PropTypes.shape({
-      universityName: PropTypes.string,
-      city: PropTypes.string,
-      country: PropTypes.string,
-      degree: PropTypes.string,
-      startDate: PropTypes.string,
-      endDate: PropTypes.string,
-    })
-  ).isRequired,
-  experience: PropTypes.arrayOf(
-    PropTypes.shape({
-      jobTitle: PropTypes.string,
-      company: PropTypes.string,
-      startDate: PropTypes.string,
-      endDate: PropTypes.string,
-      description: PropTypes.string,
-    })
-  ).isRequired,
-  projects: PropTypes.arrayOf(
-    PropTypes.shape({
-      projectName: PropTypes.string,
-      role: PropTypes.string,
-      placeOrPlatform: PropTypes.string,
-      period: PropTypes.string,
-    })
-  ).isRequired,
-  skills: PropTypes.arrayOf(
-    PropTypes.shape({
-      skillCategory: PropTypes.string,
-      skillList: PropTypes.string,
-    })
-  ).isRequired,
+
   contactLabel: PropTypes.objectOf(PropTypes.string).isRequired,
   profileLabel: PropTypes.objectOf(PropTypes.string).isRequired,
   educationLabel: PropTypes.objectOf(PropTypes.string).isRequired,
   experienceLabel: PropTypes.objectOf(PropTypes.string).isRequired,
   projectsLabel: PropTypes.objectOf(PropTypes.string).isRequired,
   skillsLabel: PropTypes.objectOf(PropTypes.string).isRequired,
-  activeForm: PropTypes.oneOf(['contact', 'education', 'experience'])
-    .isRequired,
-  onContactChange: PropTypes.func.isRequired,
-  onProfileChange: PropTypes.func.isRequired,
-  onEducationChange: PropTypes.func.isRequired,
-  onWorkExperienceChange: PropTypes.func.isRequired,
-  onProjectChange: PropTypes.func.isRequired,
-  onSkillsChange: PropTypes.func.isRequired,
-  onAddEducation: PropTypes.func.isRequired,
-  onAddExperience: PropTypes.func.isRequired,
-  onAddProject: PropTypes.func.isRequired,
-  onAddSkills: PropTypes.func.isRequired,
-  onRenderFormSection: PropTypes.func.isRequired,
+
+  handlers: PropTypes.shape({
+    onContactChange: PropTypes.func.isRequired,
+    onProfileChange: PropTypes.func.isRequired,
+    onEducationChange: PropTypes.func.isRequired,
+    onWorkExperienceChange: PropTypes.func.isRequired,
+    onProjectChange: PropTypes.func.isRequired,
+    onSkillsChange: PropTypes.func.isRequired,
+    onAddEducation: PropTypes.func.isRequired,
+    onAddExperience: PropTypes.func.isRequired,
+    onAddProject: PropTypes.func.isRequired,
+    onAddSkills: PropTypes.func.isRequired,
+  }).isRequired,
+
+  ui: PropTypes.shape({
+    activeForm: PropTypes.oneOf([
+      'contact',
+      'profile',
+      'education',
+      'experience',
+      'projects',
+      'skills',
+    ]).isRequired,
+    onRenderFormSection: PropTypes.func.isRequired,
+  }).isRequired,
 };

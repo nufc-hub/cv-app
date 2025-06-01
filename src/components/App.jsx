@@ -132,29 +132,29 @@ function App() {
   return (
     <div className="app-container">
       <CVForm
-        contact={contact} // Contact state
-        profile={profile} // Profile state
-        education={education} // Education state
-        experience={experience} // Work experience state
-        projects={projects} // Project state
-        skills={skills} // Skills state
-        activeForm={activeForm} // The form element currently being displayed
-        onContactChange={setContact}
-        onProfileChange={setProfile}
-        onEducationChange={setEducation}
-        onWorkExperienceChange={setExperience}
-        onProjectChange={setProjects}
-        onSkillsChange={setSkills}
-        onAddEducation={addEducation}
-        onAddExperience={addExperience}
-        onAddProject={addProject}
-        onAddSkills={addSkills}
+        // Data states
+        data={{ contact, profile, education, experience, projects, skills }}
+        handlers={{
+          // Used for updating states when input is
+          onContactChange: setContact,
+          onProfileChange: setProfile,
+          onEducationChange: setEducation,
+          onWorkExperienceChange: setExperience,
+          onProjectChange: setProjects,
+          onSkillsChange: setSkills,
+          // Adds another object into the data array
+          onAddEducation: addEducation,
+          onAddExperience: addExperience,
+          onAddProject: addProject,
+          onAddSkills: addSkills,
+        }}
+        // Active form is the form element currently being displayed
+        ui={{ activeForm, onRenderFormSection: renderFormSection }}
+        activeForm={activeForm}
         onRenderFormSection={renderFormSection}
       />
       <CVPreview
-        contact={contact}
-        education={education}
-        experience={experience}
+        data={{ contact, profile, education, experience, projects, skills }}
       />
     </div>
   );

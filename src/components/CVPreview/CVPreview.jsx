@@ -10,14 +10,9 @@ import {
 } from '../../constants/labels.js';
 import PropTypes from 'prop-types';
 
-export default function CVPreview({
-  contact,
-  profile,
-  education,
-  experience,
-  projects,
-  skills,
-}) {
+export default function CVPreview({ data }) {
+  const { contact, profile, education, experience, projects, skills } = data;
+
   return (
     <form>
       <ObjectPreviewSection data={contact} labels={contactLabel} />
@@ -36,33 +31,15 @@ export default function CVPreview({
 }
 
 CVPreview.propTypes = {
-  contact: PropTypes.shape({
-    name: PropTypes.string,
-    email: PropTypes.string,
-    phone: PropTypes.string,
-    city: PropTypes.string,
-    country: PropTypes.string,
-    link: PropTypes.string,
+  data: PropTypes.shape({
+    contact: PropTypes.object.isRequired,
+    profile: PropTypes.object.isRequired,
+    education: PropTypes.array.isRequired,
+    experience: PropTypes.array.isRequired,
+    projects: PropTypes.array.isRequired,
+    skills: PropTypes.array.isRequired,
   }).isRequired,
-  education: PropTypes.arrayOf(
-    PropTypes.shape({
-      universityName: PropTypes.string,
-      city: PropTypes.string,
-      country: PropTypes.string,
-      degree: PropTypes.string,
-      startDate: PropTypes.string,
-      endDate: PropTypes.string,
-    })
-  ).isRequired,
-  experience: PropTypes.arrayOf(
-    PropTypes.shape({
-      jobTitle: PropTypes.string,
-      company: PropTypes.string,
-      startDate: PropTypes.string,
-      endDate: PropTypes.string,
-      description: PropTypes.string,
-    })
-  ),
+
   contactLabel: PropTypes.objectOf(PropTypes.string).isRequired,
   educationLabel: PropTypes.objectOf(PropTypes.string).isRequired,
   experienceLabel: PropTypes.objectOf(PropTypes.string).isRequired,
