@@ -113,6 +113,17 @@ function App() {
     ]);
   }
 
+  function addSkills() {
+    setSkills((prev) => [
+      ...prev,
+      {
+        skillCategory: '',
+        skills: '',
+        id: crypto.randomUUID(),
+      },
+    ]);
+  }
+
   // Changes which section of the form is visible.
   function renderFormSection(formSection) {
     setActiveForm(formSection);
@@ -136,6 +147,7 @@ function App() {
         onAddEducation={addEducation}
         onAddExperience={addExperience}
         onAddProject={addProject}
+        onAddSkills={addSkills}
         onRenderFormSection={renderFormSection}
       />
       <CVPreview
