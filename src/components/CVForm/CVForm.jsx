@@ -4,6 +4,14 @@ import {
   updateObjectState,
   updateArrayObjectState,
 } from '../../utils/stateUpdaters.js';
+import {
+  contactLabel,
+  profileLabel,
+  educationLabel,
+  experienceLabel,
+  projectLabel,
+  skillsLabel,
+} from '../../constants/labels.js';
 import './CVForm.css';
 import PropTypes from 'prop-types';
 
@@ -14,12 +22,6 @@ export default function CVForm({
   experience,
   project,
   skills,
-  contactLabel,
-  profileLable,
-  educationLabel,
-  experienceLabel,
-  projectLabel,
-  skillsLabel,
   activeForm,
   onContactChange,
   onProfileChange,
@@ -29,6 +31,7 @@ export default function CVForm({
   onSkillsChange,
   onAddEducation,
   onAddExperience,
+  onAddProject,
   onRenderFormSection,
 }) {
   // For rendering an object into a form section
@@ -50,6 +53,8 @@ export default function CVForm({
   const handleWorkExperienceInputChange = createArrayObjectStateHandler(
     onWorkExperienceChange
   );
+  const handleProjectInputChange =
+    createArrayObjectStateHandler(onProjectChange);
   return (
     <>
       <form>
@@ -73,7 +78,9 @@ export default function CVForm({
           >
             Work Experience
           </button>
-          <button type="button">Projects</button>
+          <button type="button" onClick={() => onRenderFormSection('project')}>
+            Projects
+          </button>
           <button type="button">Skills</button>
         </nav>
 
@@ -92,7 +99,7 @@ export default function CVForm({
           <ObjectFormSection
             title={'Profile'}
             data={profile}
-            labels={contactLabel}
+            labels={profileLabel}
             onInputChange={handleProfileInputChange}
           />
         )}
@@ -108,7 +115,7 @@ export default function CVForm({
           />
         )}
 
-        {/* Experience info */}
+        {/* Work experience info */}
         {activeForm === 'experience' && (
           <ArrayFormSection
             title="Work Experience" // Section title
@@ -116,6 +123,17 @@ export default function CVForm({
             labels={experienceLabel} //Form labels
             onInputChange={handleWorkExperienceInputChange} // This is the input element functionality
             onAddField={onAddExperience} // For button click
+          />
+        )}
+
+        {/* Project info */}
+        {activeForm === 'project' && (
+          <ArrayFormSection
+            title={'Projects'}
+            data={project}
+            labels={projectLabel}
+            onInputChange={handleProjectInputChange}
+            onAddField={onAddProject}
           />
         )}
       </form>
@@ -183,6 +201,8 @@ CVForm.propTypes = {
   onWorkExperienceChange: PropTypes.func.isRequired,
   onProjectChange: PropTypes.func.isRequired,
   onSkillsChange: PropTypes.func.isRequired,
+  onAddEducation: PropTypes.func.isRequired,
   onAddExperience: PropTypes.func.isRequired,
+  onAddProject: PropTypes.func.isRequired,
   onRenderFormSection: PropTypes.func.isRequired,
 };
