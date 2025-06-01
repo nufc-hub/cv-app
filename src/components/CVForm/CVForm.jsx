@@ -44,6 +44,7 @@ export default function CVForm({
 
   // Add the setState function to the object/arrayObject renderers
   const handleContactInputChange = createObjectStateHandler(onContactChange);
+  const handleProfileInputChange = createObjectStateHandler(onProfileChange);
   const handleEducationChange =
     createArrayObjectStateHandler(onEducationChange);
   const handleWorkExperienceInputChange = createArrayObjectStateHandler(
@@ -57,7 +58,9 @@ export default function CVForm({
           <button type="button" onClick={() => onRenderFormSection('contact')}>
             Personal Info
           </button>
-          <button type="button">Profile</button>
+          <button type="button" onClick={() => onRenderFormSection('profile')}>
+            Profile
+          </button>
           <button
             type="button"
             onClick={() => onRenderFormSection('education')}
@@ -84,7 +87,15 @@ export default function CVForm({
           />
         )}
 
-        {/* Add profile info and all new state info next */}
+        {/* Profile info*/}
+        {activeForm === 'profile' && (
+          <ObjectFormSection
+            title={'Profile'}
+            data={profile}
+            labels={contactLabel}
+            onInputChange={handleProfileInputChange}
+          />
+        )}
 
         {/* Education info */}
         {activeForm === 'education' && (
@@ -159,7 +170,7 @@ CVForm.propTypes = {
     })
   ).isRequired,
   contactLabel: PropTypes.objectOf(PropTypes.string).isRequired,
-  cprofileLabel: PropTypes.objectOf(PropTypes.string).isRequired,
+  profileLabel: PropTypes.objectOf(PropTypes.string).isRequired,
   educationLabel: PropTypes.objectOf(PropTypes.string).isRequired,
   experienceLabel: PropTypes.objectOf(PropTypes.string).isRequired,
   projectLabel: PropTypes.objectOf(PropTypes.string).isRequired,

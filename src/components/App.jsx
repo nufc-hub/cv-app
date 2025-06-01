@@ -72,36 +72,6 @@ function App() {
   // The current visible form field (contact set as default)
   const [activeForm, setActiveForm] = useState('contact');
 
-  function handleContactChange(field, value) {
-    setContact((prev) => ({ ...prev, [field]: value }));
-  }
-
-  console.log(contact);
-
-  function handleEducationChange(index, field, value) {
-    setEducation((prev) =>
-      // Receive the previous state in prev
-      // Interate over the objs in the array. Entry is the current obj
-      prev.map((entry, i) =>
-        // When at the correct index, copy the current obj with ...entry
-        // Update the value and return a new obj
-        i === index ? { ...entry, [field]: value } : entry
-      )
-    );
-  }
-
-  console.log(education);
-
-  function handleExperienceChange(index, field, value) {
-    setExperience((prev) =>
-      prev.map((entry, i) =>
-        i === index ? { ...entry, [field]: value } : entry
-      )
-    );
-  }
-
-  console.log(experience);
-
   // Add education div to form
   function addEducation() {
     setEducation((prev) => [
@@ -142,15 +112,19 @@ function App() {
     <div className="app-container">
       <CVForm
         contact={contact}
+        profile={profile}
         education={education}
         experience={experience}
         activeForm={activeForm}
         contactLabel={contactLabel} // Form labels
         educationLabel={educationLabel} // Form labels
         experienceLabel={experienceLabel} // Form labels
-        onContactChange={handleContactChange}
-        onEducationChange={handleEducationChange}
-        onExperienceChange={handleExperienceChange}
+        onContactChange={setContact}
+        onProfileChange={setProfile}
+        onEducationChange={setEducation}
+        onWorkExperienceChange={setExperience}
+        onProjectChange={setProject}
+        onSkillsChange={setSkills}
         onAddEducation={addEducation}
         onAddExperience={addExperience}
         onRenderFormSection={renderFormSection}
