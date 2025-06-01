@@ -3,10 +3,10 @@ import './ContactForm.css';
 
 // Uses props passed down from the CVForm component
 export default function ObjectFormSection({
+  onInputChange,
   title,
   data,
   labels,
-  onInputChange,
 }) {
   // Loop through the object
   const fields = Object.keys(data).map((key) => {
