@@ -200,7 +200,7 @@ CVForm.propTypes = {
   skills: PropTypes.arrayOf(
     PropTypes.shape({
       skillCategory: PropTypes.string,
-      skills: PropTypes.string,
+      skillList: PropTypes.string,
     })
   ).isRequired,
   contactLabel: PropTypes.objectOf(PropTypes.string).isRequired,

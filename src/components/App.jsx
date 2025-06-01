@@ -61,15 +61,13 @@ function App() {
   const [skills, setSkills] = useState([
     {
       skillCategory: '',
-      skills: '',
+      skillList: '',
       id: crypto.randomUUID(),
     },
   ]);
 
   // The current visible form field ("contact" set as default)
   const [activeForm, setActiveForm] = useState('contact');
-
-  function addObjectToStateArray() {}
 
   function addEducation() {
     setEducation((prev) => [
@@ -120,7 +118,7 @@ function App() {
       ...prev,
       {
         skillCategory: '',
-        skills: '',
+        skillList: '',
         id: crypto.randomUUID(),
       },
     ]);
