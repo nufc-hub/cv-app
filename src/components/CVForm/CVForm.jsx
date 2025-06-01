@@ -15,8 +15,11 @@ export default function CVForm({
   project,
   skills,
   contactLabel,
+  profileLable,
   educationLabel,
   experienceLabel,
+  projectLabel,
+  skillsLabel,
   activeForm,
   onContactChange,
   onProfileChange,
@@ -116,8 +119,11 @@ CVForm.propTypes = {
     phone: PropTypes.string,
     city: PropTypes.string,
     country: PropTypes.string,
-    gitHub: '',
-    linkedIn: '',
+    gitHub: PropTypes.string,
+    linkedIn: PropTypes.string,
+  }).isRequired,
+  profile: PropTypes.shape({
+    summary: PropTypes.string,
   }).isRequired,
   education: PropTypes.arrayOf(
     PropTypes.shape({
@@ -138,14 +144,34 @@ CVForm.propTypes = {
       description: PropTypes.string,
     })
   ).isRequired,
+  project: PropTypes.arrayOf(
+    PropTypes.shape({
+      projectName: PropTypes.string,
+      role: PropTypes.string,
+      placeOrPlatform: PropTypes.string,
+      period: PropTypes.string,
+    })
+  ).isRequired,
+  skills: PropTypes.arrayOf(
+    PropTypes.shape({
+      skillCategory: PropTypes.string,
+      skills: PropTypes.string,
+    })
+  ).isRequired,
   contactLabel: PropTypes.objectOf(PropTypes.string).isRequired,
+  cprofileLabel: PropTypes.objectOf(PropTypes.string).isRequired,
   educationLabel: PropTypes.objectOf(PropTypes.string).isRequired,
   experienceLabel: PropTypes.objectOf(PropTypes.string).isRequired,
+  projectLabel: PropTypes.objectOf(PropTypes.string).isRequired,
+  skillsLabel: PropTypes.objectOf(PropTypes.string).isRequired,
   activeForm: PropTypes.oneOf(['contact', 'education', 'experience'])
     .isRequired,
-  onObjectStateChange: PropTypes.func.isRequired,
-  onArrayObjectChange: PropTypes.func.isRequired,
-  onAddEducation: PropTypes.func.isRequired,
+  onContactChange: PropTypes.func.isRequired,
+  onProfileChange: PropTypes.func.isRequired,
+  onEducationChange: PropTypes.func.isRequired,
+  onWorkExperienceChange: PropTypes.func.isRequired,
+  onProjectChange: PropTypes.func.isRequired,
+  onSkillsChange: PropTypes.func.isRequired,
   onAddExperience: PropTypes.func.isRequired,
   onRenderFormSection: PropTypes.func.isRequired,
 };
