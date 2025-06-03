@@ -38,16 +38,16 @@ export default function CVForm({ data, handlers, ui }) {
   const { activeForm, onRenderFormSection } = ui;
 
   // Add the setState function to the object/arrayObject renderers
-  const handleContactInputChange = createObjectStateHandler(onContactChange);
-  const handleProfileInputChange = createObjectStateHandler(onProfileChange);
-  const handleEducationChange =
-    createArrayObjectStateHandler(onEducationChange);
-  const handleWorkExperienceInputChange = createArrayObjectStateHandler(
-    onWorkExperienceChange
-  );
-  const handleProjectInputChange =
-    createArrayObjectStateHandler(onProjectChange);
-  const handleSkillsInputChange = createArrayObjectStateHandler(onSkillsChange);
+  const inputHandlers = {
+    handleContactInputChange: createObjectStateHandler(onContactChange),
+    handleProfileInputChange: createObjectStateHandler(onProfileChange),
+    handleEducationChange: createArrayObjectStateHandler(onEducationChange),
+    handleWorkExperienceInputChange: createArrayObjectStateHandler(
+      onWorkExperienceChange
+    ),
+    handleProjectInputChange: createArrayObjectStateHandler(onProjectChange),
+    handleSkillsInputChange: createArrayObjectStateHandler(onSkillsChange),
+  };
 
   // Form sections
   const formSectionsMap = useMemo(() =>
@@ -55,12 +55,7 @@ export default function CVForm({ data, handlers, ui }) {
     getFormSectionMap(
       { contact, profile, education, experience, projects, skills },
       {
-        handleContactInputChange,
-        handleProfileInputChange,
-        handleEducationChange,
-        handleWorkExperienceInputChange,
-        handleProjectInputChange,
-        handleSkillsInputChange,
+        ...inputHandlers,
         onAddEducation,
         onAddExperience,
         onAddProject,
@@ -73,12 +68,7 @@ export default function CVForm({ data, handlers, ui }) {
         experience,
         projects,
         skills,
-        handleContactInputChange,
-        handleProfileInputChange,
-        handleEducationChange,
-        handleWorkExperienceInputChange,
-        handleProjectInputChange,
-        handleSkillsInputChange,
+        ...Object.values(inputHandlers),
         onAddEducation,
         onAddExperience,
         onAddProject,
