@@ -37,8 +37,8 @@ export default function CVForm({ data, handlers, ui }) {
   } = handlers;
   const { activeForm, onRenderFormSection } = ui;
 
-  // Add the setState function to the object/arrayObject renderers
   const inputHandlers = {
+    // Add the setState function to the object/arrayObject renderers
     handleContactInputChange: createObjectStateHandler(onContactChange),
     handleProfileInputChange: createObjectStateHandler(onProfileChange),
     handleEducationChange: createArrayObjectStateHandler(onEducationChange),
@@ -87,7 +87,14 @@ export default function CVForm({ data, handlers, ui }) {
         <FormNav onRenderFormSection={onRenderFormSection} />
 
         {/* Render active form section */}
-        {Component && <Component {...sectionProps} />}
+        {Component ? (
+          <Component {...sectionProps} />
+        ) : (
+          <p>
+            Our devs are working on getting your cv generator up and running
+            again.
+          </p>
+        )}
       </form>
     </>
   );
