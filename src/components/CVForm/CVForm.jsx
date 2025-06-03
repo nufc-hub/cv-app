@@ -87,7 +87,7 @@ export default function CVForm({ data, handlers, ui }) {
 
       {/* Render active form section */}
       {Component ? (
-        <Component {...sectionProps} />
+        <Component key={activeForm} {...sectionProps} />
       ) : (
         <p>
           Our devs are working on getting your cv generator up and running
