@@ -21,15 +21,25 @@ export default function CVPreview({ data }) {
       {/* Profile info */}
       <ObjectPreviewSection data={profile} labels={profileLabel} />
 
+      {/* Education info */}
       <ArrayPreviewSection
         title="Education"
         data={education}
         labels={educationLabel}
       />
+
+      {/* Work experience info */}
       <ArrayPreviewSection
         title="Work Experience"
         data={experience}
         labels={experienceLabel}
+      />
+
+      {/* Projects info */}
+      <ArrayPreviewSection
+        title="Projects"
+        data={projects}
+        labels={projectsLabel}
       />
     </form>
   );
