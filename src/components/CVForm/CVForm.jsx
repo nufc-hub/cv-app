@@ -1,18 +1,9 @@
 import FormNav from '../../components/FormNav.jsx';
-import ObjectFormSection from './ObjectFormSection.jsx';
-import ArrayFormSection from './ArrayFormSection.jsx';
 import {
   updateObjectState,
   updateArrayObjectState,
 } from '../../utils/stateUpdaters.js';
-import {
-  contactLabel,
-  profileLabel,
-  educationLabel,
-  experienceLabel,
-  projectsLabel,
-  skillsLabel,
-} from '../../constants/labels.js';
+import getFormSectionMap from '../../constants/formSectionConfig.js';
 import './CVForm.css';
 import PropTypes from 'prop-types';
 
@@ -55,75 +46,33 @@ export default function CVForm({ data, handlers, ui }) {
     createArrayObjectStateHandler(onProjectChange);
   const handleSkillsInputChange = createArrayObjectStateHandler(onSkillsChange);
 
+  // Form sections
+  const formSectionsMap = getFormSectionMap(
+    { contact, profile, education, experience, projects, skills },
+    {
+      handleContactInputChange,
+      handleProfileInputChange,
+      handleEducationChange,
+      handleWorkExperienceInputChange,
+      handleProjectInputChange,
+      handleSkillsInputChange,
+      onAddEducation,
+      onAddExperience,
+      onAddProject,
+      onAddSkills,
+    }
+  );
+
+  // Active form section objects
+  const { Component, props } = formSectionsMap[activeForm];
   return (
     <>
       <form>
         {/* Nav panel */}
         <FormNav onRenderFormSection={onRenderFormSection} />
 
-        {/* Contact info */}
-        {activeForm === 'contact' && (
-          <ObjectFormSection
-            title="Contact Information" // Section title
-            data={contact} // Contact object
-            labels={contactLabel} //Form labels
-            onInputChange={handleContactInputChange} // This is the input element functionality
-          />
-        )}
-
-        {/* Profile info*/}
-        {activeForm === 'profile' && (
-          <ObjectFormSection
-            title={'Profile'}
-            data={profile}
-            labels={profileLabel}
-            onInputChange={handleProfileInputChange}
-          />
-        )}
-
-        {/* Education info */}
-        {activeForm === 'education' && (
-          <ArrayFormSection
-            title="Education" // Section title
-            data={education} // Education array
-            labels={educationLabel} //Form labels
-            onInputChange={handleEducationChange} // This is the input element functionality
-            onAddField={onAddEducation} // For button click
-          />
-        )}
-
-        {/* Work experience info */}
-        {activeForm === 'experience' && (
-          <ArrayFormSection
-            title="Work Experience" // Section title
-            data={experience} // Experience array
-            labels={experienceLabel} //Form labels
-            onInputChange={handleWorkExperienceInputChange} // This is the input element functionality
-            onAddField={onAddExperience} // For button click
-          />
-        )}
-
-        {/* Project info */}
-        {activeForm === 'projects' && (
-          <ArrayFormSection
-            title={'Projects'}
-            data={projects}
-            labels={projectsLabel}
-            onInputChange={handleProjectInputChange}
-            onAddField={onAddProject}
-          />
-        )}
-
-        {/* Skills info */}
-        {activeForm === 'skills' && (
-          <ArrayFormSection
-            title={'Skills'}
-            data={skills}
-            labels={skillsLabel}
-            onInputChange={handleSkillsInputChange}
-            onAddField={onAddSkills}
-          />
-        )}
+        {/* Render active form section */}
+        {Component && <Component {...props} />}
       </form>
     </>
   );
@@ -138,13 +87,6 @@ CVForm.propTypes = {
     projects: PropTypes.array.isRequired,
     skills: PropTypes.array.isRequired,
   }).isRequired,
-
-  contactLabel: PropTypes.objectOf(PropTypes.string).isRequired,
-  profileLabel: PropTypes.objectOf(PropTypes.string).isRequired,
-  educationLabel: PropTypes.objectOf(PropTypes.string).isRequired,
-  experienceLabel: PropTypes.objectOf(PropTypes.string).isRequired,
-  projectsLabel: PropTypes.objectOf(PropTypes.string).isRequired,
-  skillsLabel: PropTypes.objectOf(PropTypes.string).isRequired,
 
   handlers: PropTypes.shape({
     onContactChange: PropTypes.func.isRequired,
