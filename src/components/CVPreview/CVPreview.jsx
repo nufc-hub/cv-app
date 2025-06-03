@@ -41,6 +41,9 @@ export default function CVPreview({ data }) {
         data={projects}
         labels={projectsLabel}
       />
+
+      {/* Skills info */}
+      <ArrayPreviewSection title="Skills" data={skills} labels={skillsLabel} />
     </form>
   );
 }
