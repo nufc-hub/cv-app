@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+import { useMemo } from 'react';
 import FormNav from '../../components/FormNav.jsx';
 import {
   updateObjectState,
@@ -5,7 +7,19 @@ import {
 } from '../../utils/stateUpdaters.js';
 import getFormSectionMap from '../../constants/formSectionConfig.js';
 import './CVForm.css';
-import PropTypes from 'prop-types';
+
+// createObjectStateHandler and createArrayObjectStateHandler defined outside of CVForm to prevent redefining them on each render
+
+// For rendering an object into a form section
+function createObjectStateHandler(setStateFn) {
+  return (field, value) => updateObjectState(setStateFn, field, value);
+}
+
+// For rendering an arrayObject into a form section
+function createArrayObjectStateHandler(setStateFn) {
+  return (index, field, value) =>
+    updateArrayObjectState(setStateFn, index, field, value);
+}
 
 export default function CVForm({ data, handlers, ui }) {
   const { contact, profile, education, experience, projects, skills } = data;
@@ -23,17 +37,6 @@ export default function CVForm({ data, handlers, ui }) {
   } = handlers;
   const { activeForm, onRenderFormSection } = ui;
 
-  // For rendering an object into a form section
-  function createObjectStateHandler(setStateFn) {
-    return (field, value) => updateObjectState(setStateFn, field, value);
-  }
-
-  // For rendering an arrayObject into a form section
-  function createArrayObjectStateHandler(setStateFn) {
-    return (index, field, value) =>
-      updateArrayObjectState(setStateFn, index, field, value);
-  }
-
   // Add the setState function to the object/arrayObject renderers
   const handleContactInputChange = createObjectStateHandler(onContactChange);
   const handleProfileInputChange = createObjectStateHandler(onProfileChange);
@@ -47,24 +50,45 @@ export default function CVForm({ data, handlers, ui }) {
   const handleSkillsInputChange = createArrayObjectStateHandler(onSkillsChange);
 
   // Form sections
-  const formSectionsMap = getFormSectionMap(
-    { contact, profile, education, experience, projects, skills },
-    {
-      handleContactInputChange,
-      handleProfileInputChange,
-      handleEducationChange,
-      handleWorkExperienceInputChange,
-      handleProjectInputChange,
-      handleSkillsInputChange,
-      onAddEducation,
-      onAddExperience,
-      onAddProject,
-      onAddSkills,
-    }
+  const formSectionsMap = useMemo(() =>
+    getFormSectionMap(
+      { contact, profile, education, experience, projects, skills },
+      {
+        handleContactInputChange,
+        handleProfileInputChange,
+        handleEducationChange,
+        handleWorkExperienceInputChange,
+        handleProjectInputChange,
+        handleSkillsInputChange,
+        onAddEducation,
+        onAddExperience,
+        onAddProject,
+        onAddSkills,
+      },
+      [
+        contact,
+        profile,
+        education,
+        experience,
+        projects,
+        skills,
+        handleContactInputChange,
+        handleProfileInputChange,
+        handleEducationChange,
+        handleWorkExperienceInputChange,
+        handleProjectInputChange,
+        handleSkillsInputChange,
+        onAddEducation,
+        onAddExperience,
+        onAddProject,
+        onAddSkills,
+      ]
+    )
   );
 
   // Active form section objects
   const { Component, props } = formSectionsMap[activeForm];
+
   return (
     <>
       <form>
