@@ -1,3 +1,4 @@
+import FormNav from '../../components/FormNav.jsx';
 import ObjectFormSection from './ObjectFormSection.jsx';
 import ArrayFormSection from './ArrayFormSection.jsx';
 import {
@@ -57,33 +58,8 @@ export default function CVForm({ data, handlers, ui }) {
   return (
     <>
       <form>
-        {/* Button panel */}
-        <nav aria-label="Form section navigation">
-          <button type="button" onClick={() => onRenderFormSection('contact')}>
-            Personal Info
-          </button>
-          <button type="button" onClick={() => onRenderFormSection('profile')}>
-            Profile
-          </button>
-          <button
-            type="button"
-            onClick={() => onRenderFormSection('education')}
-          >
-            Education
-          </button>
-          <button
-            type="button"
-            onClick={() => onRenderFormSection('experience')}
-          >
-            Work Experience
-          </button>
-          <button type="button" onClick={() => onRenderFormSection('projects')}>
-            Projects
-          </button>
-          <button type="button" onClick={() => onRenderFormSection('skills')}>
-            Skills
-          </button>
-        </nav>
+        {/* Nav panel */}
+        <FormNav onRenderFormSection={onRenderFormSection} />
 
         {/* Contact info */}
         {activeForm === 'contact' && (
