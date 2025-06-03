@@ -81,22 +81,20 @@ export default function CVForm({ data, handlers, ui }) {
   const { Component, props: sectionProps } = formSectionsMap[activeForm];
 
   return (
-    <>
-      <form>
-        {/* Nav panel */}
-        <FormNav onRenderFormSection={onRenderFormSection} />
+    <form>
+      {/* Nav panel */}
+      <FormNav onRenderFormSection={onRenderFormSection} />
 
-        {/* Render active form section */}
-        {Component ? (
-          <Component {...sectionProps} />
-        ) : (
-          <p>
-            Our devs are working on getting your cv generator up and running
-            again.
-          </p>
-        )}
-      </form>
-    </>
+      {/* Render active form section */}
+      {Component ? (
+        <Component {...sectionProps} />
+      ) : (
+        <p>
+          Our devs are working on getting your cv generator up and running
+          again.
+        </p>
+      )}
+    </form>
   );
 }
 
