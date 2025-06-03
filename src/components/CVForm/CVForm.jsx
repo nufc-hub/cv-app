@@ -51,6 +51,7 @@ export default function CVForm({ data, handlers, ui }) {
 
   // Form sections
   const formSectionsMap = useMemo(() =>
+    // Memoize for performance
     getFormSectionMap(
       { contact, profile, education, experience, projects, skills },
       {
@@ -87,7 +88,7 @@ export default function CVForm({ data, handlers, ui }) {
   );
 
   // Active form section objects
-  const { Component, props } = formSectionsMap[activeForm];
+  const { Component, props: sectionProps } = formSectionsMap[activeForm];
 
   return (
     <>
@@ -96,7 +97,7 @@ export default function CVForm({ data, handlers, ui }) {
         <FormNav onRenderFormSection={onRenderFormSection} />
 
         {/* Render active form section */}
-        {Component && <Component {...props} />}
+        {Component && <Component {...sectionProps} />}
       </form>
     </>
   );
