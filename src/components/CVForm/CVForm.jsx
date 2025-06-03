@@ -78,7 +78,8 @@ export default function CVForm({ data, handlers, ui }) {
   );
 
   // Active form section objects
-  const { Component, props: sectionProps } = formSectionsMap[activeForm];
+  const { Component: FormSection, props: sectionProps } =
+    formSectionsMap[activeForm];
 
   return (
     <form>
@@ -86,8 +87,8 @@ export default function CVForm({ data, handlers, ui }) {
       <FormNav onRenderFormSection={onRenderFormSection} />
 
       {/* Render active form section */}
-      {Component ? (
-        <Component key={activeForm} {...sectionProps} />
+      {FormSection ? (
+        <FormSection key={activeForm} {...sectionProps} />
       ) : (
         <p>
           Our devs are working on getting your cv generator up and running
