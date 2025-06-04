@@ -41,7 +41,8 @@ export default function CVForm({ data, handlers, ui }) {
     // Add the setState function to the object/arrayObject renderers
     handleContactInputChange: createObjectStateHandler(onContactChange),
     handleProfileInputChange: createObjectStateHandler(onProfileChange),
-    handleEducationChange: createArrayObjectStateHandler(onEducationChange),
+    handleEducationInputChange:
+      createArrayObjectStateHandler(onEducationChange),
     handleWorkExperienceInputChange: createArrayObjectStateHandler(
       onWorkExperienceChange
     ),
