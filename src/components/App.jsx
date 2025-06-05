@@ -1,127 +1,58 @@
 import { useState } from 'react';
+import {
+  createContact,
+  createProfileInfo,
+  createEducationInfo,
+  createWorkExperienceInfo,
+  createProjectsInfo,
+  createSkillsInfo,
+} from '../constants/initialDataFactories.js';
 import CVForm from '../components/CVForm/CVForm.jsx';
 import CVPreview from '../components/CVPreview/CVPreview.jsx';
 import './App.css';
 
 function App() {
   // Contact details
-  const [contact, setContact] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    city: '',
-    country: '',
-    gitHub: '',
-    linkedIn: '',
-    id: crypto.randomUUID(),
-  });
+  const [contact, setContact] = useState(createContact());
 
   // Profile summary
-  const [profile, setProfile] = useState({
-    summary: '',
-  });
+  const [profile, setProfile] = useState(createProfileInfo());
 
   // Education details
-  const [education, setEducation] = useState([
-    {
-      universityName: '',
-      city: '',
-      country: '',
-      degree: '',
-      startDate: '',
-      endDate: '',
-      id: crypto.randomUUID(),
-    },
-  ]);
+  const [education, setEducation] = useState([createEducationInfo()]);
 
   // Work experience
   const [workExperience, setWorkExperience] = useState([
-    {
-      jobTitle: '',
-      company: '',
-      startDate: '',
-      endDate: '',
-      description: '',
-      id: crypto.randomUUID(),
-    },
+    createWorkExperienceInfo(),
   ]);
 
   // Projects completed
-  const [projects, setProjects] = useState([
-    {
-      projectName: '',
-      role: '',
-      placeOrPlatform: '',
-      period: '',
-      id: crypto.randomUUID(),
-    },
-  ]);
+  const [projects, setProjects] = useState([createProjectsInfo()]);
 
   // Skills learned
-  const [skills, setSkills] = useState([
-    {
-      skillCategory: '',
-      skillList: '',
-      id: crypto.randomUUID(),
-    },
-  ]);
+  const [skills, setSkills] = useState([createSkillsInfo()]);
 
   // The current visible form field ("contact" set as default)
   const [activeForm, setActiveForm] = useState('contact');
 
+  // Add another education section to the form
   function addEducation() {
-    setEducation((prev) => [
-      ...prev,
-      {
-        universityName: '',
-        city: '',
-        country: '',
-        degree: '',
-        startDate: '',
-        endDate: '',
-        id: crypto.randomUUID(),
-      },
-    ]);
+    setEducation((prev) => [...prev, createEducationInfo()]);
   }
 
-  // Add work experience
+  // Add another work experience section to the form
   function addWorkExperience() {
-    setWorkExperience((prev) => [
-      ...prev,
-      {
-        jobTitle: '',
-        company: '',
-        startDate: '',
-        endDate: '',
-        description: '',
-        id: crypto.randomUUID(),
-      },
-    ]);
+    setWorkExperience((prev) => [...prev, createWorkExperienceInfo()]);
   }
 
-  // Add project
+  // Add another project section to the form
   function addProject() {
-    setProjects((prev) => [
-      ...prev,
-      {
-        projectName: '',
-        role: '',
-        placeOrPlatform: '',
-        period: '',
-        id: crypto.randomUUID(),
-      },
-    ]);
+    setProjects((prev) => [...prev, createProjectsInfo()]);
   }
 
+  //Add another skills section to the form
   function addSkills() {
-    setSkills((prev) => [
-      ...prev,
-      {
-        skillCategory: '',
-        skillList: '',
-        id: crypto.randomUUID(),
-      },
-    ]);
+    setSkills((prev) => [...prev, createSkillsInfo()]);
   }
 
   // Changes which section of the form is visible.
@@ -150,8 +81,6 @@ function App() {
         }}
         // Active form is the form element currently being displayed
         ui={{ activeForm, onRenderFormSection: renderFormSection }}
-        activeForm={activeForm}
-        onRenderFormSection={renderFormSection}
       />
       <CVPreview
         data={{ contact, profile, education, workExperience, projects, skills }}
