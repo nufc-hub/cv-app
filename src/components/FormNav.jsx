@@ -7,7 +7,7 @@ export default function FormNav({ onRenderFormSection }) {
     ['contact', 'Personal Info'],
     ['profile', 'Profile'],
     ['education', 'Education'],
-    ['experience', 'Work Experience'],
+    ['workExperience', 'Work Experience'],
     ['projects', 'Projects'],
     ['skills', 'Skills'],
   ];

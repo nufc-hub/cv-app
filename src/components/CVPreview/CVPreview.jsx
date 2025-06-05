@@ -4,14 +4,15 @@ import {
   contactLabel,
   profileLabel,
   educationLabel,
-  experienceLabel,
+  workExperienceLabel,
   projectsLabel,
   skillsLabel,
 } from '../../constants/labels.js';
 import PropTypes from 'prop-types';
 
 export default function CVPreview({ data }) {
-  const { contact, profile, education, experience, projects, skills } = data;
+  const { contact, profile, education, workExperience, projects, skills } =
+    data;
 
   return (
     <form>
@@ -31,8 +32,8 @@ export default function CVPreview({ data }) {
       {/* Work experience info */}
       <ArrayPreviewSection
         title="Work Experience"
-        data={experience}
-        labels={experienceLabel}
+        data={workExperience}
+        labels={workExperienceLabel}
       />
 
       {/* Projects info */}
@@ -53,12 +54,12 @@ CVPreview.propTypes = {
     contact: PropTypes.object.isRequired,
     profile: PropTypes.object.isRequired,
     education: PropTypes.array.isRequired,
-    experience: PropTypes.array.isRequired,
+    workExperience: PropTypes.array.isRequired,
     projects: PropTypes.array.isRequired,
     skills: PropTypes.array.isRequired,
   }).isRequired,
 
   contactLabel: PropTypes.objectOf(PropTypes.string).isRequired,
   educationLabel: PropTypes.objectOf(PropTypes.string).isRequired,
-  experienceLabel: PropTypes.objectOf(PropTypes.string).isRequired,
+  workExperienceLabel: PropTypes.objectOf(PropTypes.string).isRequired,
 };

@@ -35,7 +35,7 @@ function App() {
   ]);
 
   // Work experience
-  const [experience, setExperience] = useState([
+  const [workExperience, setWorkExperience] = useState([
     {
       jobTitle: '',
       company: '',
@@ -85,8 +85,8 @@ function App() {
   }
 
   // Add work experience
-  function addExperience() {
-    setExperience((prev) => [
+  function addWorkExperience() {
+    setWorkExperience((prev) => [
       ...prev,
       {
         jobTitle: '',
@@ -133,18 +133,18 @@ function App() {
     <div className="app-container">
       <CVForm
         // Data states
-        data={{ contact, profile, education, experience, projects, skills }}
+        data={{ contact, profile, education, workExperience, projects, skills }}
         handlers={{
           // Used for updating states when input is
           onContactChange: setContact,
           onProfileChange: setProfile,
           onEducationChange: setEducation,
-          onWorkExperienceChange: setExperience,
+          onWorkExperienceChange: setWorkExperience,
           onProjectChange: setProjects,
           onSkillsChange: setSkills,
           // Adds another object into the data array
           onAddEducation: addEducation,
-          onAddExperience: addExperience,
+          onAddWorkExperience: addWorkExperience,
           onAddProject: addProject,
           onAddSkills: addSkills,
         }}
@@ -154,7 +154,7 @@ function App() {
         onRenderFormSection={renderFormSection}
       />
       <CVPreview
-        data={{ contact, profile, education, experience, projects, skills }}
+        data={{ contact, profile, education, workExperience, projects, skills }}
       />
     </div>
   );

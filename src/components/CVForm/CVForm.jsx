@@ -22,7 +22,8 @@ function createArrayObjectStateHandler(setStateFn) {
 }
 
 export default function CVForm({ data, handlers, ui }) {
-  const { contact, profile, education, experience, projects, skills } = data;
+  const { contact, profile, education, workExperience, projects, skills } =
+    data;
   const {
     onContactChange,
     onProfileChange,
@@ -31,7 +32,7 @@ export default function CVForm({ data, handlers, ui }) {
     onProjectChange,
     onSkillsChange,
     onAddEducation,
-    onAddExperience,
+    onAddWorkExperience,
     onAddProject,
     onAddSkills,
   } = handlers;
@@ -51,32 +52,31 @@ export default function CVForm({ data, handlers, ui }) {
   };
 
   // Form sections
-  const formSectionsMap = useMemo(() =>
+  const formSectionsMap = useMemo(() => {
     // Memoize for performance
-    getFormSectionMap(
-      { contact, profile, education, experience, projects, skills },
+    return getFormSectionMap(
+      { contact, profile, education, workExperience, projects, skills },
       {
         ...inputHandlers,
         onAddEducation,
-        onAddExperience,
+        onAddWorkExperience,
         onAddProject,
         onAddSkills,
-      },
-      [
-        contact,
-        profile,
-        education,
-        experience,
-        projects,
-        skills,
-        ...Object.values(inputHandlers),
-        onAddEducation,
-        onAddExperience,
-        onAddProject,
-        onAddSkills,
-      ]
-    )
-  );
+      }
+    );
+  }, [
+    contact,
+    profile,
+    education,
+    workExperience,
+    projects,
+    skills,
+    ...Object.values(inputHandlers),
+    onAddEducation,
+    onAddWorkExperience,
+    onAddProject,
+    onAddSkills,
+  ]);
 
   // Active form section objects
   const { Component: FormSection, props: sectionProps } =
@@ -89,7 +89,7 @@ export default function CVForm({ data, handlers, ui }) {
 
       {/* Render active form section */}
       {FormSection ? (
-        <FormSection key={activeForm} {...sectionProps} />
+        <FormSection {...sectionProps} />
       ) : (
         <p>
           Our devs are working on getting your cv generator up and running
@@ -105,7 +105,7 @@ CVForm.propTypes = {
     contact: PropTypes.object.isRequired,
     profile: PropTypes.object.isRequired,
     education: PropTypes.array.isRequired,
-    experience: PropTypes.array.isRequired,
+    workExperience: PropTypes.array.isRequired,
     projects: PropTypes.array.isRequired,
     skills: PropTypes.array.isRequired,
   }).isRequired,
@@ -118,7 +118,7 @@ CVForm.propTypes = {
     onProjectChange: PropTypes.func.isRequired,
     onSkillsChange: PropTypes.func.isRequired,
     onAddEducation: PropTypes.func.isRequired,
-    onAddExperience: PropTypes.func.isRequired,
+    onAddWorkExperience: PropTypes.func.isRequired,
     onAddProject: PropTypes.func.isRequired,
     onAddSkills: PropTypes.func.isRequired,
   }).isRequired,
@@ -128,7 +128,7 @@ CVForm.propTypes = {
       'contact',
       'profile',
       'education',
-      'experience',
+      'workExperience',
       'projects',
       'skills',
     ]).isRequired,

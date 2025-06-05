@@ -24,8 +24,8 @@ export const educationLabel = {
   endDate: 'End Date',
 };
 
-// Labels for experience in form
-export const experienceLabel = {
+// Labels for work experience in form
+export const workExperienceLabel = {
   jobTitle: 'Job Title',
   company: 'Company',
   startDate: 'Start Date',

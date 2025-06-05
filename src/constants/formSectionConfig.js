@@ -2,7 +2,7 @@ import {
   contactLabel,
   profileLabel,
   educationLabel,
-  experienceLabel,
+  workExperienceLabel,
   projectsLabel,
   skillsLabel,
 } from './labels';
@@ -13,7 +13,8 @@ import ArrayFormSection from '../components/CVForm/ArrayFormSection';
 // Renders Each form section
 
 export default function getFormSectionMap(data, handlers) {
-  const { contact, profile, education, experience, projects, skills } = data;
+  const { contact, profile, education, workExperience, projects, skills } =
+    data;
   const {
     handleContactInputChange,
     handleProfileInputChange,
@@ -22,7 +23,7 @@ export default function getFormSectionMap(data, handlers) {
     handleProjectInputChange,
     handleSkillsInputChange,
     onAddEducation,
-    onAddExperience,
+    onAddWorkExperience,
     onAddProject,
     onAddSkills,
   } = handlers;
@@ -63,14 +64,14 @@ export default function getFormSectionMap(data, handlers) {
     },
 
     // Work Experience section
-    experience: {
+    workExperience: {
       Component: ArrayFormSection,
       props: {
-        title: 'Experience',
-        data: experience,
-        labels: experienceLabel,
+        title: 'Work Experience',
+        data: workExperience,
+        labels: workExperienceLabel,
         onInputChange: handleWorkExperienceInputChange,
-        onAddField: onAddExperience,
+        onAddField: onAddWorkExperience,
       },
     },
 
