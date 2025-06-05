@@ -83,7 +83,7 @@ export default function CVForm({ data, handlers, ui }) {
     formSectionsMap[activeForm];
 
   if (!FormSection) {
-    console.error(`No form section found for "${activeForm}"`); // Error handling incase 'activeForm' is undefined.
+    console.error(`No form section found for "${activeForm}"`); // Error handling in case 'activeForm' is undefined.
   }
 
   return (

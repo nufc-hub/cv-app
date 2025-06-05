@@ -10,39 +10,37 @@ export default function ArrayFormSection({
   onAddField,
 }) {
   // Loop through each object in the array
-  const section = data.map(
-    (
-      entry,
-      index // THIS IS NOT A FORM ITS A SECTION OF A FORM - CHANGE THE const FROM form
-    ) => (
-      // Set key for the form section.
-      <div key={entry.id}>
-        {/* Each form gets a new numbered header */}
-        <h3>
-          {title} {index + 1}
-        </h3>
-        {/* Loop through the object */}
-        {Object.keys(entry).map((key) => {
-          // Dont render the object id
-          if (key === 'id') return null;
+  const section = data.map((entry, index) => (
+    // Set key for the form section.
+    <div key={entry.id}>
+      {/* Each form gets a new numbered header */}
+      <h3>
+        {title} {index + 1}
+      </h3>
+      {/* Loop through the object */}
+      {Object.keys(entry).map((key) => {
+        // Dont render the object id
+        if (key === 'id') return null;
 
-          // Render form section
-          return (
-            // Set key for each field.
-            <div key={`${entry.id}-${key}`}>
-              <label htmlFor={key}>{labels[key] || key}</label>
-              <input
-                id={key}
-                type="text"
-                name={key}
-                onChange={(e) => onInputChange(index, key, e.target.value)} // Add the props for the function. Updates the object each time a letter is added or removed
-              />
-            </div>
-          );
-        })}
-      </div>
-    )
-  );
+        // Used as a key
+        const inputId = `${entry.id}-${key}`;
+
+        // Render form section
+        return (
+          // Set key for each field.
+          <div key={inputId}>
+            <label htmlFor={`${entry.id}-${key}`}>{labels[key] || key}</label>
+            <input
+              id={inputId}
+              type="text"
+              name={key}
+              onChange={(e) => onInputChange(index, key, e.target.value)} // Add the props for the function. Updates the object each time a letter is added or removed
+            />
+          </div>
+        );
+      })}
+    </div>
+  ));
 
   // Render inputs
   return (
