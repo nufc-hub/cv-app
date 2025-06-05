@@ -3,13 +3,13 @@ import './ContactForm.css';
 
 // Uses props passed down from the CVForm component
 export default function ObjectFormSection({
-  onInputChange,
   title,
   data,
   labels,
+  onInputChange,
 }) {
   // Loop through the object
-  const fields = Object.keys(data).map((key) => {
+  const section = Object.keys(data).map((key) => {
     // Dont render the object id
     if (key === 'id') return null;
 
@@ -33,7 +33,7 @@ export default function ObjectFormSection({
     <>
       <fieldset>
         <legend>{title}</legend>
-        {fields}
+        {section}
       </fieldset>
     </>
   );
