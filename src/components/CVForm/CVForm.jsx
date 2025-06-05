@@ -82,6 +82,10 @@ export default function CVForm({ data, handlers, ui }) {
   const { Component: FormSection, props: sectionProps } =
     formSectionsMap[activeForm];
 
+  if (!FormSection) {
+    console.error(`No form section found for "${activeForm}"`); // Error handling incase 'activeForm' is undefined.
+  }
+
   return (
     <form>
       {/* Nav panel */}
