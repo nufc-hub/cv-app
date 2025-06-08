@@ -28,7 +28,7 @@ export default function ArrayFormSection({
         // Render form section
         return (
           // Set key for each field.
-          <div key={inputId}>
+          <div key={inputId} className="array-form-section">
             <label htmlFor={`${entry.id}-${key}`}>
               {labels[key] || key}
               <input

@@ -16,7 +16,7 @@ export default function ObjectFormSection({
     // Render form
     return (
       // Set key for each field.
-      <div key={key}>
+      <div key={key} className="object-form-section">
         <label htmlFor={key}>
           {labels[key] || key}
           <input
