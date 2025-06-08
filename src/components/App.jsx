@@ -9,7 +9,7 @@ import {
 } from '../constants/initialDataFactories.js';
 import CVForm from '../components/CVForm/CVForm.jsx';
 import CVPreview from '../components/CVPreview/CVPreview.jsx';
-import './App.css';
+import '../styles/App.css';
 
 function App() {
   // Contact details
