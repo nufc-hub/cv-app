@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 // Uses props passed down from the CVPreview component
 export default function ArrayPreviewSection({ title, data, labels }) {
   return (
-    <>
+    <div>
       <h2>{title}</h2>
       {/* Loop through each object in the array */}
       {data.map((entry) => (
@@ -17,7 +17,7 @@ export default function ArrayPreviewSection({ title, data, labels }) {
             // Render section
             return (
               // Set key for each field.
-              <div key={`${entry.id}-${key}`}>
+              <div key={key}>
                 <h3>{labels[key]}</h3>
                 <p>{entry[key]}</p>
               </div>
@@ -25,7 +25,7 @@ export default function ArrayPreviewSection({ title, data, labels }) {
           })}
         </div>
       ))}
-    </>
+    </div>
   );
 }
 
