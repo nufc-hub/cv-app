@@ -6,7 +6,7 @@ import {
   updateArrayObjectState,
 } from '../../utils/stateUpdaters.js';
 import getFormSectionMap from '../../constants/formSectionConfig.js';
-import './CVForm.css';
+import '../../styles/CVForm.css';
 
 // createObjectStateHandler and createArrayObjectStateHandler defined outside of CVForm to prevent redefining them on each render
 
@@ -87,20 +87,23 @@ export default function CVForm({ data, handlers, ui }) {
   }
 
   return (
-    <form>
-      {/* Nav panel */}
-      <FormNav onRenderFormSection={onRenderFormSection} />
+    <div className="cv-form">
+      <h1>CV Generator</h1>
+      <form>
+        {/* Nav panel */}
+        <FormNav onRenderFormSection={onRenderFormSection} />
 
-      {/* Render active form section */}
-      {FormSection ? (
-        <FormSection {...sectionProps} />
-      ) : (
-        <p>
-          Our devs are working on getting your cv generator up and running
-          again.
-        </p>
-      )}
-    </form>
+        {/* Render active form section */}
+        {FormSection ? (
+          <FormSection {...sectionProps} />
+        ) : (
+          <p>
+            Our devs are working on getting your cv generator up and running
+            again.
+          </p>
+        )}
+      </form>
+    </div>
   );
 }
 
