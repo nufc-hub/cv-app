@@ -6,11 +6,10 @@ export default function ObjectPreviewSection({ data, labels }) {
   const section = Object.keys(data).map((key) => {
     // Dont render the object id
     if (key === 'id') return null;
-
     // Render details
     return (
       // Set key for each field.
-      <div key={`${key.id}-${key}`}>
+      <div key={key}>
         <h3>{labels[key]}</h3>
         {/* Add onSubmit here?
     when the submit button is clicked the p element is updated*/}
@@ -20,7 +19,7 @@ export default function ObjectPreviewSection({ data, labels }) {
   });
 
   // Render details
-  return <>{section}</>;
+  return <div>{section}</div>;
 }
 
 ObjectPreviewSection.propTypes = {
