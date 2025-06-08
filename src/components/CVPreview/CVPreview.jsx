@@ -1,51 +1,34 @@
-import ObjectPreviewSection from './ObjectPreviewSection.jsx';
-import ArrayPreviewSection from './ArrayPreviewSection.jsx';
-import {
-  contactLabel,
-  profileLabel,
-  educationLabel,
-  workExperienceLabel,
-  projectsLabel,
-  skillsLabel,
-} from '../../constants/labels.js';
 import PropTypes from 'prop-types';
+import { useMemo } from 'react';
+import getPreviewSectionMap from '../../constants/previewSectionConfig.js';
 
 export default function CVPreview({ data }) {
   const { contact, profile, education, workExperience, projects, skills } =
     data;
+  // CV sections
+  const previewSectionMap = useMemo(() => {
+    // Memoize for performance
+    return getPreviewSectionMap({
+      contact,
+      profile,
+      education,
+      workExperience,
+      projects,
+      skills,
+    });
+  }, [contact, profile, education, workExperience, projects, skills]);
 
   return (
-    <form>
-      {/* Contact info */}
-      <ObjectPreviewSection data={contact} labels={contactLabel} />
+    <div>
+      {/* Loop through the data in the map and render whatever is in the map*/}
+      {Object.entries(previewSectionMap).map(([key, section]) => {
+        if (!section?.Component) return null; // Skip if not correctly configured
 
-      {/* Profile info */}
-      <ObjectPreviewSection data={profile} labels={profileLabel} />
+        const Component = section.Component; // This is the rendering component
 
-      {/* Education info */}
-      <ArrayPreviewSection
-        title="Education"
-        data={education}
-        labels={educationLabel}
-      />
-
-      {/* Work experience info */}
-      <ArrayPreviewSection
-        title="Work Experience"
-        data={workExperience}
-        labels={workExperienceLabel}
-      />
-
-      {/* Projects info */}
-      <ArrayPreviewSection
-        title="Projects"
-        data={projects}
-        labels={projectsLabel}
-      />
-
-      {/* Skills info */}
-      <ArrayPreviewSection title="Skills" data={skills} labels={skillsLabel} />
-    </form>
+        return <Component key={key} {...section.props} />; // Pass props in and render
+      })}
+    </div>
   );
 }
 
@@ -58,8 +41,4 @@ CVPreview.propTypes = {
     projects: PropTypes.array.isRequired,
     skills: PropTypes.array.isRequired,
   }).isRequired,
-
-  contactLabel: PropTypes.objectOf(PropTypes.string).isRequired,
-  educationLabel: PropTypes.objectOf(PropTypes.string).isRequired,
-  workExperienceLabel: PropTypes.objectOf(PropTypes.string).isRequired,
 };
