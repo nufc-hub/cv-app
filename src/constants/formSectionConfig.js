@@ -10,7 +10,7 @@ import {
 import ObjectFormSection from '../components/CVForm/ObjectFormSection';
 import ArrayFormSection from '../components/CVForm/ArrayFormSection';
 
-// Renders Each form section
+// Used in form section rendering
 
 export default function getFormSectionMap(data, handlers) {
   const { contact, profile, education, workExperience, projects, skills } =
