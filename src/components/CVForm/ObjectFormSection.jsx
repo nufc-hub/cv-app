@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import './ContactForm.css';
+import '../../styles/ObjectFormSection.css';
 
 // Uses props passed down from the CVForm component
 export default function ObjectFormSection({
