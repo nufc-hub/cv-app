@@ -29,13 +29,15 @@ export default function ArrayFormSection({
         return (
           // Set key for each field.
           <div key={inputId}>
-            <label htmlFor={`${entry.id}-${key}`}>{labels[key] || key}</label>
-            <input
-              id={inputId}
-              type="text"
-              name={key}
-              onChange={(e) => onInputChange(index, key, e.target.value)} // Add the props for the function. Updates the object each time a letter is added or removed
-            />
+            <label htmlFor={`${entry.id}-${key}`}>
+              {labels[key] || key}
+              <input
+                id={inputId}
+                type="text"
+                name={key}
+                onChange={(e) => onInputChange(index, key, e.target.value)} // Add the props for the function. Updates the object each time a letter is added or removed
+              />
+            </label>
           </div>
         );
       })}

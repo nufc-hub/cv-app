@@ -17,13 +17,15 @@ export default function ObjectFormSection({
     return (
       // Set key for each field.
       <div key={key}>
-        <label htmlFor={key}>{labels[key] || key}</label>
-        <input
-          id={key}
-          type="text"
-          value={data[key]}
-          onChange={(e) => onInputChange(key, e.target.value)} // Updates state
-        />
+        <label htmlFor={key}>
+          {labels[key] || key}
+          <input
+            id={key}
+            type="text"
+            value={data[key]}
+            onChange={(e) => onInputChange(key, e.target.value)} // Updates state
+          />
+        </label>
       </div>
     );
   });
