@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import '../../styles/ArrayFormSection.css';
+import '../../styles/FormSection.css';
 
 // Uses props passed down from the CVForm component
 export default function ArrayFormSection({
@@ -28,8 +28,11 @@ export default function ArrayFormSection({
         // Render form section
         return (
           // Set key for each field.
-          <div key={inputId} className="array-form-section">
-            <label htmlFor={`${entry.id}-${key}`}>
+          <div key={inputId}>
+            <label
+              htmlFor={`${entry.id}-${key}`}
+              className="form-section-label"
+            >
               {labels[key] || key}
               <input
                 id={inputId}
@@ -47,7 +50,7 @@ export default function ArrayFormSection({
   // Render inputs
   return (
     <>
-      <fieldset>
+      <fieldset className="form-section">
         <legend>{title}</legend>
         {section}
         <button type="button" onClick={onAddField}>

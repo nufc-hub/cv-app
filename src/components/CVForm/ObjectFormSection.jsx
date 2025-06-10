@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import '../../styles/ObjectFormSection.css';
+import '../../styles/FormSection.css';
 
 // Uses props passed down from the CVForm component
 export default function ObjectFormSection({
@@ -16,8 +16,8 @@ export default function ObjectFormSection({
     // Render form
     return (
       // Set key for each field.
-      <div key={key} className="object-form-section">
-        <label htmlFor={key}>
+      <div key={key}>
+        <label htmlFor={key} className="form-section-label">
           {labels[key] || key}
           <input
             id={key}
@@ -33,7 +33,7 @@ export default function ObjectFormSection({
   // Render input
   return (
     <>
-      <fieldset>
+      <fieldset className="form-section">
         <legend>{title}</legend>
         {section}
       </fieldset>
