@@ -1,0 +1,12 @@
+nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+button {
+  font-size: 1.3em;
+  padding: 0.8em;
+  min-width: 8rem;
+  min-height: 2.5rem;
+}
