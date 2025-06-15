@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useMemo } from 'react';
 import getPreviewSectionMap from '../../constants/previewSectionConfig.js';
+import '../../styles/CVPreview.css';
 
 export default function CVPreview({ data }) {
   const { contact, profile, education, workExperience, projects, skills } =
@@ -19,7 +20,7 @@ export default function CVPreview({ data }) {
   }, [contact, profile, education, workExperience, projects, skills]);
 
   return (
-    <div>
+    <div className="cv-preview-container">
       {/* Loop through the data in the map and render whatever is in the map*/}
       {Object.entries(previewSectionMap).map(([key, section]) => {
         if (!section?.Component) return null; // Skip if not correctly configured
