@@ -20,7 +20,7 @@ export default function CVPreview({ data }) {
   }, [contact, profile, education, workExperience, projects, skills]);
 
   return (
-    <div className="cv-preview-container">
+    <div className="cv-container">
       {/* Loop through the data in the map and render whatever is in the map*/}
       {Object.entries(previewSectionMap).map(([key, section]) => {
         if (!section?.Component) return null; // Skip if not correctly configured
