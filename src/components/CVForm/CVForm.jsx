@@ -87,7 +87,7 @@ export default function CVForm({ data, handlers, ui }) {
   }
 
   return (
-    <div className="cv-form-container">
+    <div className="sidebar">
       <h1>CV Generator</h1>
       <form>
         {/* Nav panel */}
