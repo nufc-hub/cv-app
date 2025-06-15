@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useMemo } from 'react';
-import FormNav from '../../components/FormNav.jsx';
+import FormNav from '../../components/CVForm/FormNav.jsx';
 import {
   updateObjectState,
   updateArrayObjectState,
@@ -87,7 +87,7 @@ export default function CVForm({ data, handlers, ui }) {
   }
 
   return (
-    <div className="cv-form">
+    <div className="cv-form-container">
       <h1>CV Generator</h1>
       <form>
         {/* Nav panel */}
