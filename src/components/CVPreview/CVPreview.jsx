@@ -21,14 +21,16 @@ export default function CVPreview({ data }) {
 
   return (
     <div className="cv-container">
-      {/* Loop through the data in the map and render whatever is in the map*/}
-      {Object.entries(previewSectionMap).map(([key, section]) => {
-        if (!section?.Component) return null; // Skip if not correctly configured
+      <div className="cv">
+        {/* Loop through the data in the map and render whatever is in the map*/}
+        {Object.entries(previewSectionMap).map(([key, section]) => {
+          if (!section?.Component) return null; // Skip if not correctly configured
 
-        const Component = section.Component; // This is the rendering component
+          const Component = section.Component; // This is the rendering component
 
-        return <Component key={key} {...section.props} />; // Pass props in and render
-      })}
+          return <Component key={key} {...section.props} />; // Pass props in and render
+        })}
+      </div>
     </div>
   );
 }
