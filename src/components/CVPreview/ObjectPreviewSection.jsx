@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import '../../styles/PreviewSection.css';
 
 // Uses props passed down from the CVPreview component
 export default function ObjectPreviewSection({ data, labels, sectionName }) {
