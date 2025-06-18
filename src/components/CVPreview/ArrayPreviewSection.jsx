@@ -2,12 +2,7 @@ import PropTypes from 'prop-types';
 import '../../styles/PreviewSection.css';
 
 // Uses props passed down from the CVPreview component
-export default function ArrayPreviewSection({
-  title,
-  data,
-  labels,
-  sectionName,
-}) {
+export default function ArrayPreviewSection({ title, data, sectionName }) {
   return (
     <div className={`preview-section preview-section--${sectionName}`}>
       <h2>{title}</h2>
@@ -24,9 +19,6 @@ export default function ArrayPreviewSection({
             return (
               // Set key for each field.
               <div key={key} className={`preview-field preview-field--${key}`}>
-                <h3 className={`preview-label preview-lebel--${key}`}>
-                  {labels[key]}
-                </h3>
                 <p className={`preview-value preview-value--${key}`}>
                   {entry[key]}
                 </p>
