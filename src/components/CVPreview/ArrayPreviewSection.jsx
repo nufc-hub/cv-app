@@ -1,14 +1,19 @@
 import PropTypes from 'prop-types';
 
 // Uses props passed down from the CVPreview component
-export default function ArrayPreviewSection({ title, data, labels }) {
+export default function ArrayPreviewSection({
+  title,
+  data,
+  labels,
+  sectionName,
+}) {
   return (
-    <div>
+    <div className={`preview-section preview-section--${sectionName}`}>
       <h2>{title}</h2>
       {/* Loop through each object in the array */}
       {data.map((entry) => (
         // Set key for section.
-        <div key={entry.id}>
+        <div key={entry.id} className="preview-entry">
           {/* Loop through the object */}
           {Object.keys(entry).map((key) => {
             // Dont render the object id
@@ -17,9 +22,13 @@ export default function ArrayPreviewSection({ title, data, labels }) {
             // Render section
             return (
               // Set key for each field.
-              <div key={key}>
-                <h3>{labels[key]}</h3>
-                <p>{entry[key]}</p>
+              <div key={key} className={`preview-field preview-field--${key}`}>
+                <h3 className={`preview-label preview-lebel--${key}`}>
+                  {labels[key]}
+                </h3>
+                <p className={`preview-value preview-value--${key}`}>
+                  {entry[key]}
+                </p>
               </div>
             );
           })}

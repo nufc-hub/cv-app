@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 // Uses props passed down from the CVPreview component
-export default function ObjectPreviewSection({ data, labels }) {
+export default function ObjectPreviewSection({ data, labels, sectionName }) {
   // Loop through the object
   const section = Object.keys(data).map((key) => {
     // Dont render the object id
@@ -9,17 +9,19 @@ export default function ObjectPreviewSection({ data, labels }) {
     // Render details
     return (
       // Set key for each field.
-      <div key={key}>
-        <h3>{labels[key]}</h3>
-        {/* Add onSubmit here?
-    when the submit button is clicked the p element is updated*/}
-        <p>{data[key]}</p>
+      <div key={key} className={`preview-field preview-field--${key}`}>
+        <h3 className={`preview-label preview-lebel--${key}`}>{labels[key]}</h3>
+        <p className={`preview-value preview-value--${key}`}>{data[key]}</p>
       </div>
     );
   });
 
   // Render details
-  return <div>{section}</div>;
+  return (
+    <div className={`preview-section preview-section--${sectionName}`}>
+      {section}
+    </div>
+  );
 }
 
 ObjectPreviewSection.propTypes = {
