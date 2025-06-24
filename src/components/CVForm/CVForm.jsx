@@ -22,17 +22,17 @@ function createArrayObjectStateHandler(setStateFn) {
 }
 
 export default function CVForm({ data, handlers, ui }) {
-  const { contact, profile, education, workExperience, projects, skills } =
+  const { contact, profile, workExperience, education, projects, skills } =
     data;
   const {
     onContactChange,
     onProfileChange,
-    onEducationChange,
     onWorkExperienceChange,
+    onEducationChange,
     onProjectChange,
     onSkillsChange,
-    onAddEducation,
     onAddWorkExperience,
+    onAddEducation,
     onAddProject,
     onAddSkills,
   } = handlers;
@@ -42,11 +42,11 @@ export default function CVForm({ data, handlers, ui }) {
     // Add the setState function to the object/arrayObject renderers
     handleContactInputChange: createObjectStateHandler(onContactChange),
     handleProfileInputChange: createObjectStateHandler(onProfileChange),
-    handleEducationInputChange:
-      createArrayObjectStateHandler(onEducationChange),
     handleWorkExperienceInputChange: createArrayObjectStateHandler(
       onWorkExperienceChange
     ),
+    handleEducationInputChange:
+      createArrayObjectStateHandler(onEducationChange),
     handleProjectInputChange: createArrayObjectStateHandler(onProjectChange),
     handleSkillsInputChange: createArrayObjectStateHandler(onSkillsChange),
   };
@@ -55,11 +55,11 @@ export default function CVForm({ data, handlers, ui }) {
   const formSectionsMap = useMemo(() => {
     // Memoize for performance
     return getFormSectionMap(
-      { contact, profile, education, workExperience, projects, skills },
+      { contact, profile, workExperience, education, projects, skills },
       {
         ...inputHandlers,
-        onAddEducation,
         onAddWorkExperience,
+        onAddEducation,
         onAddProject,
         onAddSkills,
       }
@@ -67,13 +67,13 @@ export default function CVForm({ data, handlers, ui }) {
   }, [
     contact,
     profile,
-    education,
     workExperience,
+    education,
     projects,
     skills,
     ...Object.values(inputHandlers),
-    onAddEducation,
     onAddWorkExperience,
+    onAddEducation,
     onAddProject,
     onAddSkills,
   ]);
@@ -111,8 +111,8 @@ CVForm.propTypes = {
   data: PropTypes.shape({
     contact: PropTypes.object.isRequired,
     profile: PropTypes.object.isRequired,
-    education: PropTypes.array.isRequired,
     workExperience: PropTypes.array.isRequired,
+    education: PropTypes.array.isRequired,
     projects: PropTypes.array.isRequired,
     skills: PropTypes.array.isRequired,
   }).isRequired,
@@ -120,12 +120,12 @@ CVForm.propTypes = {
   handlers: PropTypes.shape({
     onContactChange: PropTypes.func.isRequired,
     onProfileChange: PropTypes.func.isRequired,
-    onEducationChange: PropTypes.func.isRequired,
     onWorkExperienceChange: PropTypes.func.isRequired,
+    onEducationChange: PropTypes.func.isRequired,
     onProjectChange: PropTypes.func.isRequired,
     onSkillsChange: PropTypes.func.isRequired,
-    onAddEducation: PropTypes.func.isRequired,
     onAddWorkExperience: PropTypes.func.isRequired,
+    onAddEducation: PropTypes.func.isRequired,
     onAddProject: PropTypes.func.isRequired,
     onAddSkills: PropTypes.func.isRequired,
   }).isRequired,
@@ -134,8 +134,8 @@ CVForm.propTypes = {
     activeForm: PropTypes.oneOf([
       'contact',
       'profile',
-      'education',
       'workExperience',
+      'education',
       'projects',
       'skills',
     ]).isRequired,

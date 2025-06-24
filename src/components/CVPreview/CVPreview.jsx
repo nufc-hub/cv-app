@@ -4,7 +4,7 @@ import getPreviewSectionMap from '../../constants/previewSectionConfig.js';
 import '../../styles/CVPreview.css';
 
 export default function CVPreview({ data }) {
-  const { contact, profile, education, workExperience, projects, skills } =
+  const { contact, profile, workExperience, education, projects, skills } =
     data;
   // CV sections
   const previewSectionMap = useMemo(() => {
@@ -12,12 +12,12 @@ export default function CVPreview({ data }) {
     return getPreviewSectionMap({
       contact,
       profile,
-      education,
       workExperience,
+      education,
       projects,
       skills,
     });
-  }, [contact, profile, education, workExperience, projects, skills]);
+  }, [contact, profile, workExperience, education, projects, skills]);
 
   return (
     <div className="cv-container">
@@ -28,7 +28,7 @@ export default function CVPreview({ data }) {
 
           const Component = section.Component; // This is the rendering component
 
-          return <Component key={key} {...section.props} />; // Pass props in and render
+          return <Component key={key} sectionName={key} {...section.props} />; // Pass props in and render
         })}
       </div>
     </div>
@@ -39,8 +39,8 @@ CVPreview.propTypes = {
   data: PropTypes.shape({
     contact: PropTypes.object.isRequired,
     profile: PropTypes.object.isRequired,
-    education: PropTypes.array.isRequired,
     workExperience: PropTypes.array.isRequired,
+    education: PropTypes.array.isRequired,
     projects: PropTypes.array.isRequired,
     skills: PropTypes.array.isRequired,
   }).isRequired,

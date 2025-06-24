@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import '../../styles/FormNav.css';
 
 // This is for a nav panel in the CV input form
 export default function FormNav({ onRenderFormSection }) {
@@ -6,8 +7,8 @@ export default function FormNav({ onRenderFormSection }) {
   const sections = [
     ['contact', 'Personal Info'],
     ['profile', 'Profile'],
-    ['education', 'Education'],
     ['workExperience', 'Work Experience'],
+    ['education', 'Education'],
     ['projects', 'Projects'],
     ['skills', 'Skills'],
   ];

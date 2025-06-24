@@ -1,8 +1,8 @@
 import {
   contactLabel,
   profileLabel,
-  educationLabel,
   workExperienceLabel,
+  educationLabel,
   projectsLabel,
   skillsLabel,
 } from './labels';
@@ -11,19 +11,18 @@ import ObjectFormSection from '../components/CVForm/ObjectFormSection';
 import ArrayFormSection from '../components/CVForm/ArrayFormSection';
 
 // Used in form section rendering
-
 export default function getFormSectionMap(data, handlers) {
-  const { contact, profile, education, workExperience, projects, skills } =
+  const { contact, profile, workExperience, education, projects, skills } =
     data;
   const {
     handleContactInputChange,
     handleProfileInputChange,
-    handleEducationInputChange,
     handleWorkExperienceInputChange,
+    handleEducationInputChange,
     handleProjectInputChange,
     handleSkillsInputChange,
-    onAddEducation,
     onAddWorkExperience,
+    onAddEducation,
     onAddProject,
     onAddSkills,
   } = handlers;
@@ -51,18 +50,6 @@ export default function getFormSectionMap(data, handlers) {
       },
     },
 
-    // Education section
-    education: {
-      Component: ArrayFormSection,
-      props: {
-        title: 'Education',
-        data: education,
-        labels: educationLabel,
-        onInputChange: handleEducationInputChange,
-        onAddField: onAddEducation,
-      },
-    },
-
     // Work Experience section
     workExperience: {
       Component: ArrayFormSection,
@@ -72,6 +59,18 @@ export default function getFormSectionMap(data, handlers) {
         labels: workExperienceLabel,
         onInputChange: handleWorkExperienceInputChange,
         onAddField: onAddWorkExperience,
+      },
+    },
+
+    // Education section
+    education: {
+      Component: ArrayFormSection,
+      props: {
+        title: 'Education',
+        data: education,
+        labels: educationLabel,
+        onInputChange: handleEducationInputChange,
+        onAddField: onAddEducation,
       },
     },
 

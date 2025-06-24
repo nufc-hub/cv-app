@@ -18,13 +18,13 @@ function App() {
   // Profile summary
   const [profile, setProfile] = useState(createProfileInfo());
 
-  // Education details
-  const [education, setEducation] = useState([createEducationInfo()]);
-
   // Work experience
   const [workExperience, setWorkExperience] = useState([
     createWorkExperienceInfo(),
   ]);
+
+  // Education details
+  const [education, setEducation] = useState([createEducationInfo()]);
 
   // Projects completed
   const [projects, setProjects] = useState([createProjectsInfo()]);
@@ -35,14 +35,14 @@ function App() {
   // The current visible form field ("contact" set as default)
   const [activeForm, setActiveForm] = useState('contact');
 
-  // Add another education section to the form
-  function addEducation() {
-    setEducation((prev) => [...prev, createEducationInfo()]);
-  }
-
   // Add another work experience section to the form
   function addWorkExperience() {
     setWorkExperience((prev) => [...prev, createWorkExperienceInfo()]);
+  }
+
+  // Add another education section to the form
+  function addEducation() {
+    setEducation((prev) => [...prev, createEducationInfo()]);
   }
 
   // Add another project section to the form
@@ -64,18 +64,18 @@ function App() {
     <div className="app-container">
       <CVForm
         // Data states
-        data={{ contact, profile, education, workExperience, projects, skills }}
+        data={{ contact, profile, workExperience, education, projects, skills }}
         handlers={{
           // Used for updating states when input is
           onContactChange: setContact,
           onProfileChange: setProfile,
-          onEducationChange: setEducation,
           onWorkExperienceChange: setWorkExperience,
+          onEducationChange: setEducation,
           onProjectChange: setProjects,
           onSkillsChange: setSkills,
           // Adds another object into the data array
-          onAddEducation: addEducation,
           onAddWorkExperience: addWorkExperience,
+          onAddEducation: addEducation,
           onAddProject: addProject,
           onAddSkills: addSkills,
         }}
@@ -83,7 +83,7 @@ function App() {
         ui={{ activeForm, onRenderFormSection: renderFormSection }}
       />
       <CVPreview
-        data={{ contact, profile, education, workExperience, projects, skills }}
+        data={{ contact, profile, workExperience, education, projects, skills }}
       />
     </div>
   );
