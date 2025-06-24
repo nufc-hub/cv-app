@@ -34,16 +34,6 @@ export default function getPreviewSectionMap(data) {
       },
     },
 
-    // Education section
-    education: {
-      Component: ArrayPreviewSection,
-      props: {
-        title: 'Education',
-        data: education,
-        labels: educationLabel,
-      },
-    },
-
     // Work Experience section
     workExperience: {
       Component: ArrayPreviewSection,
@@ -51,6 +41,16 @@ export default function getPreviewSectionMap(data) {
         title: 'Work Experience',
         data: workExperience,
         labels: workExperienceLabel,
+      },
+    },
+
+    // Education section
+    education: {
+      Component: ArrayPreviewSection,
+      props: {
+        title: 'Education',
+        data: education,
+        labels: educationLabel,
       },
     },
 
