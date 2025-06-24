@@ -22,7 +22,7 @@ export default function ObjectFormSection({
           <input
             id={key}
             type="text"
-            value={data[key]}
+            name={key}
             onChange={(e) => onInputChange(key, e.target.value)} // Updates state
           />
         </label>
