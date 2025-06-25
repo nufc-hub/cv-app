@@ -16,30 +16,28 @@ export const createProfileInfo = () => ({
 });
 
 export const createWorkExperienceInfo = () => ({
+  date: '05/06/25 - present',
   company: 'The Government',
   jobTitle: 'Firefighter',
-  startDate: '05/06/25',
-  endDate: '-present',
   description: 'Put out fires and helped with local issues.',
   id: crypto.randomUUID(),
 });
 
 // Education details
 export const createEducationInfo = () => ({
+  date: '04/09/22 - 25/06/25',
   universityName: 'Oxford University',
   degree: 'Computer Science',
   city: 'Oxford',
   country: 'United Kingdom',
-  startDate: '04/09/22',
-  endDate: '04/06/25',
   id: crypto.randomUUID(),
 });
 
 export const createProjectsInfo = () => ({
+  period: '05/06/25 - present',
   projectName: 'Stop fire',
   role: 'Fire stopper',
   placeOrPlatform: 'Firestation',
-  period: '05/06/25 - present',
   id: crypto.randomUUID(),
 });
 

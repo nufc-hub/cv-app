@@ -16,29 +16,27 @@ export const profileLabel = {
 
 // Labels for work experience in form
 export const workExperienceLabel = {
+  date: 'Date',
   jobTitle: 'Job Title',
   company: 'Company',
-  startDate: 'Start Date',
-  endDate: 'End Date',
   description: 'Description',
 };
 
 // Labels for education in form
 export const educationLabel = {
+  date: 'Date',
   universityName: 'University Name',
   city: 'City',
   country: 'Country',
   degree: 'Degree/Major',
-  startDate: 'Start Date',
-  endDate: 'End Date',
 };
 
 // Labels for projects in form
 export const projectsLabel = {
+  period: 'Period',
   projectName: 'Project Name',
   role: 'Role',
   placeOrPlatform: 'Place/Platform',
-  period: 'Period',
 };
 
 // Labels for skills in form
