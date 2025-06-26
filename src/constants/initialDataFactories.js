@@ -16,7 +16,7 @@ export const createProfileInfo = () => ({
 });
 
 export const createWorkExperienceInfo = () => ({
-  date: '05/06/25 - present',
+  date: '2020 - 2023',
   company: 'The Government',
   jobTitle: 'Firefighter',
   description: 'Put out fires and helped with local issues.',
@@ -25,7 +25,7 @@ export const createWorkExperienceInfo = () => ({
 
 // Education details
 export const createEducationInfo = () => ({
-  date: '04/09/22 - 25/06/25',
+  date: '2023 - 2024',
   universityName: 'Oxford University',
   degree: 'Computer Science',
   city: 'Oxford',
@@ -34,7 +34,7 @@ export const createEducationInfo = () => ({
 });
 
 export const createProjectsInfo = () => ({
-  period: '05/06/25 - present',
+  period: 'MARCH 2023 - MAY 2024',
   projectName: 'Stop fire',
   role: 'Fire stopper',
   placeOrPlatform: 'Firestation',
