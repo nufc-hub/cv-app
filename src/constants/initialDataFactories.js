@@ -5,8 +5,6 @@ export const createContact = () => ({
   phone: '02234554934',
   city: 'New York',
   country: 'USA',
-  gitHub: 'github',
-  linkedIn: 'linkedIn',
   id: crypto.randomUUID(),
 });
 
