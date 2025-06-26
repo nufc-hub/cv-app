@@ -4,8 +4,6 @@ export const contactLabel = {
   email: 'Email Address',
   phone: 'Phone Number',
   city: 'City',
-  country: 'Country',
-  gitHub: 'GitHub',
   linkedIn: 'LinkedIn',
 };
 
