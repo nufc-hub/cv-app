@@ -4,7 +4,7 @@ export const contactLabel = {
   email: 'Email Address',
   phone: 'Phone Number',
   city: 'City',
-  linkedIn: 'LinkedIn',
+  country: 'Country',
 };
 
 // Labels for profile in form
