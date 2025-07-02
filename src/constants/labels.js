@@ -24,9 +24,8 @@ export const workExperienceLabel = {
 export const educationLabel = {
   date: 'Date',
   universityName: 'University Name',
-  city: 'City',
-  country: 'Country',
   degree: 'Degree/Major',
+  location: 'Location',
 };
 
 // Labels for projects in form
@@ -35,6 +34,7 @@ export const projectsLabel = {
   projectName: 'Project Name',
   role: 'Role',
   placeOrPlatform: 'Place/Platform',
+  description: 'Description',
 };
 
 // Labels for skills in form
