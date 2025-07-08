@@ -91,7 +91,10 @@ export default function CVForm({ data, handlers, ui }) {
       <h1>CV Generator</h1>
       <form>
         {/* Nav panel */}
-        <FormNav onRenderFormSection={onRenderFormSection} />
+        <FormNav
+          onRenderFormSection={onRenderFormSection}
+          activeForm={activeForm}
+        />
 
         {/* Render active form section */}
         {FormSection ? (
