@@ -7,7 +7,8 @@ import {
   skillsLabel,
 } from './labels';
 
-import ObjectFormSection from '../components/CVForm/ObjectFormSection';
+import ContactFormSection from '../components/CVForm/ContactFormSection';
+import SummaryFormSection from '../components/CVForm/SummaryFormSection';
 import ArrayFormSection from '../components/CVForm/ArrayFormSection';
 
 // Used in form section rendering
@@ -30,7 +31,7 @@ export default function getFormSectionMap(data, handlers) {
   return {
     // Contact section
     contact: {
-      Component: ObjectFormSection,
+      Component: ContactFormSection,
       props: {
         title: 'Contact Information', // Section title
         data: contact, // Contact object
@@ -41,7 +42,7 @@ export default function getFormSectionMap(data, handlers) {
 
     // Profile section
     profile: {
-      Component: ObjectFormSection,
+      Component: SummaryFormSection,
       props: {
         title: 'Profile',
         data: profile,
