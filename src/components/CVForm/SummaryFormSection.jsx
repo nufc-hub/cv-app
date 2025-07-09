@@ -17,7 +17,10 @@ export default function SummaryFormSection({
     // Render form
     return (
       // Set key for each field.
-      <div key={key} className="form-section-label-container">
+      <div
+        key={key}
+        className={`form-section-label-container form-section-label-container-${key}`}
+      >
         <label htmlFor={key}>
           {labels[key] || key}
           <textarea
