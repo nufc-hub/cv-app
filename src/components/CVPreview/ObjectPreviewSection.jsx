@@ -5,6 +5,7 @@ import '../../styles/PreviewSection.css';
 export default function ObjectPreviewSection({ data, sectionName }) {
   // Loop through the object
   const section = Object.keys(data).map((key) => {
+    sectionName;
     // Dont render the object id
     if (key === 'id') return null;
     // Render details
@@ -27,4 +28,9 @@ export default function ObjectPreviewSection({ data, sectionName }) {
 ObjectPreviewSection.propTypes = {
   data: PropTypes.object.isRequired,
   labels: PropTypes.objectOf(PropTypes.string).isRequired,
+};
+
+ObjectPreviewSection.propTypes = {
+  data: PropTypes.object.isRequired,
+  sectionName: PropTypes.string.isRequired,
 };
