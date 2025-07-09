@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import '../../styles/FormSection.css';
 
 // Uses props passed down from the CVForm component
-export default function ObjectFormSection({
+export default function ContactFormSection({
   title,
   data,
   labels,
@@ -12,6 +12,7 @@ export default function ObjectFormSection({
   const section = Object.keys(data).map((key) => {
     // Dont render the object id
     if (key === 'id') return null;
+    if (key === 'summary') return null;
 
     // Render form
     return (
@@ -41,7 +42,7 @@ export default function ObjectFormSection({
   );
 }
 
-ObjectFormSection.propTypes = {
+ContactFormSection.propTypes = {
   title: PropTypes.string.isRequired,
   data: PropTypes.object.isRequired,
   labels: PropTypes.objectOf(PropTypes.string).isRequired,
