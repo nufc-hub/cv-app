@@ -34,5 +34,5 @@ export default function ArrayPreviewSection({ title, data, sectionName }) {
 ArrayPreviewSection.propTypes = {
   title: PropTypes.string.isRequired,
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
-  labels: PropTypes.objectOf(PropTypes.string).isRequired,
+  sectionName: PropTypes.string.isRequired,
 };
