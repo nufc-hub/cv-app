@@ -1,0 +1,21 @@
+:root {
+  /* Colour variables */
+  --sidebar-primary-bg: #171938;
+  --sidebar-secondary-bg: #2d2d5e93;
+  --cv-section-background: rgba(170, 187, 221, 0.151);
+  --button: rgb(245, 245, 245);
+  --highlight-one: rgb(227, 238, 81);
+  --highlight-two: rgb(232, 236, 171);
+  --form-border: #7c64ad;
+  --form-input: #171938;
+  --font-light-one: rgb(240, 248, 255);
+  --font-light-two: #dff7f7;
+  --font-dark-one: rgb(33, 58, 58);
+  --font-dark-two: rgb(23, 39, 39);
+  --font-dark-three: rgba(71, 71, 71, 0.904);
+  --font-dark-four: rgba(71, 71, 71, 0.966);
+  --accent-colour-one: #aaabb8;
+  --accent-color-two: rgba(187, 132, 201, 0.274);
+  --white: #ffffff;
+  --black: rgb(0, 0, 0);
+}

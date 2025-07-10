@@ -1,11 +1,42 @@
-.cv-form {
-  color: white;
-  background: #25274d;
-}
-
 h1 {
   padding: 1.5rem;
   margin: 0;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2rem;
+}
+
+/* Sidebar is on the left side of the app
+or at the top on mobile devices */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 380px;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  color: var(--white);
+  background: var(--sidebar-primary-bg);
+}
+
+.sidebar form {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+@media (max-width: 767px) {
+  .sidebar {
+    width: 100%;
+  }
+
+  .sidebar h1 {
+    margin-top: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .sidebar {
+    max-width: 300px;
+  }
 }

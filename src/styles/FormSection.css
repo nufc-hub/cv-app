@@ -1,20 +1,60 @@
+h3 {
+  text-decoration: underline;
+  font-weight: 300;
+}
+
 .form-section {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background: #464866;
+  /* flex 1 so that form-section fills the rest of its parent element */
+  flex: 1;
+  box-sizing: border-box;
+  background: var(--sidebar-secondary-bg);
   border: none;
+  padding: 2rem;
   margin: 0;
+  overflow-y: auto;
+  text-align: center;
+  font-weight: 300;
 }
 
 .form-section legend {
   float: left;
-  padding: 1.5rem;
-  font-size: 2rem;
+  border-bottom: 1px solid var(--white);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--white);
 }
 
-.form-section-label {
+.form-section-label-container {
+  margin-bottom: 2rem;
+}
+
+.form-section-label-container label {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  color: var(--font-light-two);
+}
+
+.form-section-label-container input,
+.form-section-label-container-summary textarea {
+  padding: 0.5rem;
+  border: 1px solid var(--form-border);
+  text-align: center;
+  border-radius: 5px;
+  background-color: var(--form-input);
+  font-size: 0.9em;
+  font-weight: 300;
+  color: var(--font-light-one);
+}
+
+.form-section-label-container-summary textarea {
+  flex-direction: row;
+  min-height: 200px;
+  text-align: start;
+  resize: vertical;
 }

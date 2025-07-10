@@ -1,12 +1,37 @@
 nav {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-top: 1px solid var(--accent-colour-one);
+  border-bottom: 1px solid var(--accent-colour-one);
 }
 
 button {
-  font-size: 1.3em;
-  padding: 0.8em;
-  min-width: 8rem;
+  /* Use em for padding in button as it scales with button font size */
+  padding: 0.3em;
+  min-width: 7rem;
   min-height: 2.5rem;
+  border: none;
+  border-radius: 7px;
+  font-size: 0.9em;
+  font-weight: 300;
+  color: var(--black);
+  background-color: var(--button);
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--highlight-one);
+}
+
+button.active {
+  background-color: var(--highlight-two);
+}
+
+/* Mobile and tablet devices */
+@media (max-width: 1024px) {
+  button {
+    min-width: unset;
+  }
 }

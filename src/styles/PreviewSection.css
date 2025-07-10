@@ -1,0 +1,116 @@
+p {
+  margin: 0.7rem 0;
+  color: var(--font-dark-two);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+h2 {
+  display: flex;
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  letter-spacing: 0.3px;
+  color: var(--font-dark-one);
+}
+
+h2::after {
+  content: '';
+  flex-grow: 1;
+  margin-top: 1.3rem;
+  margin-left: 0.2rem;
+  height: 1px;
+  background-color: var(--black);
+}
+
+.preview-section--contact,
+.preview-section--profile,
+.preview-section--workExperience,
+.preview-section--education,
+.preview-section--projects,
+.preview-section--skills {
+  margin-bottom: 0.9rem;
+}
+
+.preview-section--contact {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px dotted var(--black);
+}
+
+.preview-section--contact {
+  font-size: 1.2rem;
+}
+
+.preview-section--contact .preview-field--name {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 3rem;
+  color: var(--font-dark-one);
+  text-align: center;
+}
+
+.preview-section--contact .preview-value--email,
+.preview-section--contact .preview-value--phone,
+.preview-section--contact .preview-value--city,
+.preview-section--contact .preview-value--country {
+  color: var(--font-dark-three);
+}
+
+.preview-section--profile .preview-value--summary {
+  text-align: center;
+  font-size: 0.9rem;
+  letter-spacing: 0.02rem;
+}
+
+.preview-value--universityName,
+.preview-value--company,
+.preview-value--projectName,
+.preview-value--skillCategory {
+  font-weight: bold;
+  color: var(--font-dark-one);
+}
+
+.preview-value--date,
+.preview-value--period,
+.preview-value--universityName,
+.preview-value--company,
+.preview-value--projectName,
+.preview-value--skillCategory {
+  font-size: 1.1rem;
+}
+
+.preview-value--date,
+.preview-value--period {
+  letter-spacing: 1px;
+}
+
+.preview-value--jobTitle,
+.preview-value--degree,
+.preview-value--role {
+  color: var(--font-dark-four);
+  font-style: italic;
+}
+
+.preview-value--description,
+.preview-value--skillList {
+  margin-left: 0.2rem;
+  font-size: 0.9rem;
+  font-style: italic;
+  line-height: 1.7rem;
+  letter-spacing: 0.02rem;
+}
+
+@media (max-width: 1024px) {
+  .preview-section--contact,
+  .preview-section--profile,
+  .preview-section--workExperience,
+  .preview-section--education,
+  .preview-section--projects,
+  .preview-section--skills {
+    margin-bottom: 1.4rem;
+  }
+}
