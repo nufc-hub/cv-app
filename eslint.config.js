@@ -2,7 +2,6 @@ import js from '@eslint/js';
 import globals from 'globals';
 import pluginReact from 'eslint-plugin-react';
 import pluginPrettier from 'eslint-plugin-prettier';
-import prettierConfig from 'eslint-config-prettier';
 import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
@@ -25,9 +24,19 @@ export default defineConfig([
   // React plugin config
   {
     files: ['**/*.{js,jsx}'],
-    ...pluginReact.configs.flat.recommended,
+    plugins: {
+      react: pluginReact,
+    },
+    languageOptions: {
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+    },
+    rules: {
+      ...pluginReact.configs.recommended.rules,
+      'react/react-in-jsx-scope': 'off',
+    },
   },
-
-  // Prettier config (disables conflicting ESLint rules)
-  prettierConfig,
 ]);
