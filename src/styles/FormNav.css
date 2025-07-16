@@ -36,6 +36,6 @@ button.active {
   }
 
   button:hover {
-    background-color: unset;
+    background-color: var(--button);
   }
 }
