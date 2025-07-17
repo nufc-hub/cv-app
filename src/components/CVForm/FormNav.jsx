@@ -13,11 +13,6 @@ export default function FormNav({ onRenderFormSection, activeForm }) {
     ['skills', 'Skills'],
   ];
 
-  const handleClick = (id) => (e) => {
-    e.currentTarget.blur();
-    onRenderFormSection(id);
-  };
-
   return (
     <nav aria-label="Form section navigation">
       {/* Button panel */}
@@ -26,7 +21,7 @@ export default function FormNav({ onRenderFormSection, activeForm }) {
           key={id}
           type="button"
           className={activeForm === id ? 'active' : ''}
-          onClick={handleClick(id)}
+          onClick={() => onRenderFormSection(id)}
         >
           {label}
         </button>
