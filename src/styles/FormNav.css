@@ -33,8 +33,11 @@ button.active {
 @media (max-width: 1024px) {
   button {
     min-width: unset;
+    transition: none;
   }
+}
 
+@media (hover: none) {
   button:hover {
     background-color: var(--button);
   }
