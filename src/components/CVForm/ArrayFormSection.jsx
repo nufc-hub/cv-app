@@ -53,7 +53,7 @@ export default function ArrayFormSection({
       <fieldset className="form-section">
         <legend>{title}</legend>
         {section}
-        <button type="button" onClick={onAddField}>
+        <button type="button" onClick={onAddField} className="add-field-button">
           Add {title}
         </button>
       </fieldset>

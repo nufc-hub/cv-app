@@ -36,13 +36,7 @@ button.active {
     transition: none;
   }
 
-  button:hover {
-    background-color: var(--button);
-  }
-}
-
-@media (hover: none) {
-  button:hover {
+  .add-field-button:hover {
     background-color: var(--button);
   }
 }
