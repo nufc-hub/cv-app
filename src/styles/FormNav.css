@@ -35,6 +35,10 @@ button.active {
     min-width: unset;
     transition: none;
   }
+
+  button:hover {
+    background-color: var(--button);
+  }
 }
 
 @media (hover: none) {
